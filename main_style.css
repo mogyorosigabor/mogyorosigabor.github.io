@@ -430,14 +430,14 @@ button:focus, button:active {
 
 .section_intro .pdf li:before {
 	content: "\f1c1";
-	font-family: "Font Awesome 5 Free";
+	font-family: "Font Awesome 5 Pro";
 	color: #F00;
 	margin-right: 10px;
 }
 
 .section_intro .pdf_fajl:before {
 	content: "\f1c1";
-	font-family: "Font Awesome 5 Free";
+	font-family: "Font Awesome 5 Pro";
 	color: #F00;
 	margin-left: 5px;
 	font-weight: normal !important;
@@ -449,7 +449,7 @@ button:focus, button:active {
 
 .section_intro .link li:before {
 	content: "\f0ac";
-	font-family: "Font Awesome 5 Free";
+	font-family: "Font Awesome 5 Pro";
 	color: rgba(17,62,112,1);
 	margin-right: 10px;
 }
