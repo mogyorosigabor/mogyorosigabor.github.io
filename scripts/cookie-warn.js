@@ -55,7 +55,7 @@
         attributes.debug = attributes.debug == "true" ? true : false;
 
         if (attributes.debug) {
-            console.log(attributes);
+            //console.log(attributes);
         }
 
         return attributes;
@@ -115,7 +115,7 @@
             }
 
             if (attributes.debug) {
-                console.log(name, value);
+                //console.log(name, value);
             }
 
             document.cookie = escape(name) + "=" + value;
@@ -165,12 +165,12 @@
         var accepted = cookieWarnValue == 'true' || cookieWarnValue === true ? true : false;
 
         if (attributes.debug) {
-            console.log('status: ' + (accepted ? 'accepted' : 'rejected'));
+            //console.log('status: ' + (accepted ? 'accepted' : 'rejected'));
         }
 
         if (attributes.callback && window[attributes.callback]) {
             if (attributes.debug) {
-                console.log('call: ' + attributes.callback);
+                //console.log('call: ' + attributes.callback);
             }
             window[attributes.callback](accepted);
         }
@@ -261,7 +261,7 @@
         var readyState = document.readyState;
 
         if (attributes.debug) {
-            console.log('readyState: ' + readyState);
+            //console.log('readyState: ' + readyState);
         }
 
         if (readyState == 'complete') {
