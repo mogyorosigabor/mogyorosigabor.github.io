@@ -15,6 +15,7 @@ fetch(url2 + '/modulok/M87458_weboldalak/weboldalak.php', {
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': "*",
+'Access-Control-Allow-Credentials' : true 
     },
     referrerPolicy: 'no-referrer'
 }).then((response) => response.json()).then(data => {
