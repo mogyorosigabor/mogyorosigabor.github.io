@@ -1,1 +1,20 @@
-{"short_name":"MG Webstudio","name":"MG Webstudio | Dr. Mogyorósi Gábor","icons":[{"src":"https://mogyorosigabor.github.io/assets/img/favicon/android-chrome-192x192.png?h=ef4c4788c1b53ee51efce6e6b4c737c5","type":"image/png","sizes":"192x192"},{"src":"https://mogyorosigabor.github.io/assets/img/favicon/android-chrome-512x512.png?h=30e6503f3a7f0e2a32e258c2d0dbc16f","type":"image/png","sizes":"512x512"}],"start_url":"/index.html","theme_color":"#0f3f6f","display":"fullscreen","orientation":"portrait"}
+{
+  "short_name": "MG Webstudio",
+  "name": "MG Webstudio | Dr. Mogyorósi Gábor",
+  "icons": [
+    {
+      "src": "https://mogyorosigabor.github.io/assets/img/favicon/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://mogyorosigabor.github.io/assets/img/favicon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "theme_color": "#0f3f6f",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
