@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MG Webstudio | Dr. Mogyorósi Gábor</title>
+    <meta name="theme-color" content="#0f3f6f">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0f3f6f">
+    <meta name="msapplication-navbutton-color" content="#0f3f6f">
+    <meta name="twitter:image" content="/assets/img/fb-img.jpg">
+    <meta name="twitter:title" content="MG Webstudio | Dr. Mogyorósi Gábor">
+    <meta name="twitter:description" content="Dr. Mogyorósi Gábor egyetemi adjunktus, fizikus Ph.D. személyes weboldala.">
+    <meta name="description" content="Dr. Mogyorósi Gábor egyetemi adjunktus, fizikus Ph.D. személyes weboldala.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description" content="Dr. Mogyorósi Gábor egyetemi adjunktus, fizikus Ph.D. személyes weboldala.">
+    <meta property="og:title" content="MG Webstudio | Dr. Mogyorósi Gábor">
+    <meta property="og:image" content="/assets/img/fb-img.jpg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play:400,700&subset=latin-ext&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+</head>
+<body class="bg-light">
+<div class="container my-4">
+    <div class="row gy-3">
+        <div class="col-lg-3">
+            <div data-toc="tartalomjegyzek" class="sticky-top small bg-warning rounded-3 p-3 shadow"></div>
+        </div>
+        <div class="col-lg-9">
+            <h1 class="text-center mb-5">C++ programozás | Feladatok megoldással</h1>
+            <section class="forJS">
+                <h2 id="bevezetes" class="fw-bold">2. Bevezetés</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-1">2.1. feladat</h3>
+                A kerekasztal-tárgyalások asztala üvegezésre szorul. Írjon programot, amely kiszámítja
+                tetszőleges üveggyűrű elkészítésének árát. A program kérje be a belső és külső sugár
+                mértékét, valamint az üveg árát Ft/m<sup>2</sup>-ben. Írja ki, hogy mennyibe kerül az üvegezés.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double belsoSugar, kulsoSugar, uvegAr;
+    double terulet, uvegKoltseg;
+
+    cout << "Add meg a belső sugár méretét (méterben): ";
+    cin >> belsoSugar;
+
+    cout << "Add meg a külső sugár méretét (méterben): ";
+    cin >> kulsoSugar;
+
+    cout << "Add meg az üveg árát (Ft/m2-ben): ";
+    cin >> uvegAr;
+
+    // Üveggyűrű területének kiszámítása
+    terulet = M_PI * (pow(kulsoSugar, 2) - pow(belsoSugar, 2));
+
+    // Üvegköltség kiszámítása
+    uvegKoltseg = terulet * uvegAr;
+
+    cout << "Az üvegezés költsége: " << uvegKoltseg << " Ft" << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-2">2.2. feladat</h3>
+                Egy tetszőleges méretű hasáb alakú tartályt töltünk meg vízzel. A tartály méreteit és a
+                liter/másodperc vízhozamot a program kérje be. Számítsa, majd írja ki, hogy mennyi idő
+                alatt telik meg a tartály.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double tartalyMagassag, tartalySzelesseg, tartalyHossz;
+    double vizhozam;
+
+    cout << "Add meg a tartály magasságát (méterben): ";
+    cin >> tartalyMagassag;
+
+    cout << "Add meg a tartály szélességét (méterben): ";
+    cin >> tartalySzelesseg;
+
+    cout << "Add meg a tartály hosszát (méterben): ";
+    cin >> tartalyHossz;
+
+    cout << "Add meg a vízhozamot (liter/másodperc): ";
+    cin >> vizhozam;
+
+    // Tartály térfogatának kiszámítása
+    double tartalyTerfogat = tartalyMagassag * tartalySzelesseg * tartalyHossz;
+
+    // Idő kiszámítása a tartály megteléséhez
+    double ido = (tartalyTerfogat) / (vizhozam); // átváltás literből köbméterre
+
+    cout << "A tartály megtelik " << ido << " másodperc alatt." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-3">2.3. feladat</h3>
+                Készítsen programot, amely egy szabályos gúla tömegét számítja ki. A gúla alapélének
+                méretét, a magasságát, és anyagának fajsúlyát a program kérje be, majd az eredményt írja
+                ki a képernyőre.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double oldalhossz, magassag, fajsuly;
+    double gulaTerfogat, gulaTomeg;
+
+    cout << "Add meg a gúla alapjának oldalhosszát (méterben): ";
+    cin >> oldalhossz;
+
+    cout << "Add meg a gúla magasságát (méterben): ";
+    cin >> magassag;
+
+    cout << "Add meg a gúla anyagának fajsúlyát (kg/m3-ben): ";
+    cin >> fajsuly;
+
+    // Gúla térfogatának kiszámítása
+    gulaTerfogat = (1.0 / 3.0) * pow(oldalhossz, 2) * magassag;
+
+    // Gúla tömegének kiszámítása
+    gulaTomeg = gulaTerfogat * fajsuly;
+
+    cout << "A gúla tömege: " << gulaTomeg << " kg" << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-4">2.4. feladat</h3>
+                Készítsen programot, amely kiszámítja egy henger lefestéséhez szükséges
+                festékmennyiséget. A henger sugarát, a magasságát, és a festék négyzetméterenként
+                szükséges mennyiségét a program kérje be, majd az eredményt írja ki a képernyőre.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double sugar, magassag, festekMennyiseg;
+    double hengerFelulet, festekMennyisegTeljes;
+
+    cout << "Add meg a henger sugarát (méterben): ";
+    cin >> sugar;
+
+    cout << "Add meg a henger magasságát (méterben): ";
+    cin >> magassag;
+
+    cout << "Add meg a festék négyzetméterenként szükséges mennyiségét (liter/m2-ben): ";
+    cin >> festekMennyiseg;
+
+    // Henger felszínének kiszámítása
+    hengerFelulet = 2 * M_PI * sugar * (sugar + magassag);
+
+    // Festék teljes mennyiségének kiszámítása
+    festekMennyisegTeljes = hengerFelulet * festekMennyiseg;
+
+    cout << "A festékmennyiség a henger lefestéséhez: " << festekMennyisegTeljes << " liter" << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-5">2.5. feladat</h3>
+                Készítsen programot, amely kiszámítja, hogy mekkora a haszna egy kereskedőnek, ha
+                adott a beszerzési ár és haszonkulcs százalékban. A program kérje be a beszerzési ár és a
+                haszonkulcs értékét, majd az eredményt írja ki a képernyőre.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double beszerzesiAr, haszonkulcs;
+    double haszon;
+
+    cout << "Add meg a beszerzési árat: ";
+    cin >> beszerzesiAr;
+
+    cout << "Add meg a haszonkulcsot százalékban: ";
+    cin >> haszonkulcs;
+
+    // Haszon számítása
+    haszon = beszerzesiAr * (haszonkulcs / 100.0);
+
+    cout << "A kereskedő haszna: " << haszon << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-6">2.6. feladat</h3>
+                Készítsen programot, amely kiszámítja, hogy egy szabászgép hány ruhát tud kiszabni egy
+                adott méretű anyagból. A program kérje be az anyag méretét (hosszúság, szélesség) és az
+                egy ruhához szükséges anyag területét, majd az eredményt írja ki a képernyőre.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double anyagHosszusag, anyagSzelesseg, ruhaTerulet;
+    int ruhaDarab;
+
+    cout << "Add meg az anyag hosszúságát (méterben): ";
+    cin >> anyagHosszusag;
+
+    cout << "Add meg az anyag szélességét (méterben): ";
+    cin >> anyagSzelesseg;
+
+    cout << "Add meg az egy ruhához szükséges anyag területét (négyzetméterben): ";
+    cin >> ruhaTerulet;
+
+    // Ruha darabszámának kiszámítása
+    ruhaDarab = static_cast&lt;int>(anyagHosszusag / anyagSzelesseg) * static_cast&lt;int>(anyagSzelesseg / ruhaTerulet);
+
+    cout << "A szabászgép " << ruhaDarab << " ruhát tud kiszabni az adott méretű anyagból." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="bevezetes-7">2.7. feladat</h3>
+                Készítsen programot, amely bekéri egy téglalap és egy négyzet méreteit. Majd kiszámítja
+                és kiírja a képernyőre, hogy a négyzet területe hányszor kisebb a téglalapénál, és mennyi
+                a maradék.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double teglalapHossz, teglalapSzelesseg, negyzetOldal;
+    double teglalapTerulet, negyzetTerulet;
+    double kisebbseg, maradek;
+
+    cout << "Add meg a téglalap hosszát (méterben): ";
+    cin >> teglalapHossz;
+
+    cout << "Add meg a téglalap szélességét (méterben): ";
+    cin >> teglalapSzelesseg;
+
+    cout << "Add meg a négyzet oldalhosszát (méterben): ";
+    cin >> negyzetOldal;
+
+    // Téglalap területének kiszámítása
+    teglalapTerulet = teglalapHossz * teglalapSzelesseg;
+
+    // Négyzet területének kiszámítása
+    negyzetTerulet = negyzetOldal * negyzetOldal;
+
+    // A négyzet területének viszonya a téglalap területéhez
+    kisebbseg = teglalapTerulet / negyzetTerulet;
+
+    // A maradék terület kiszámítása
+    maradek = abs(teglalapTerulet - negyzetTerulet);
+
+    cout << "A négyzet területe " << kisebbseg << "x kisebb a téglalap területénél." << endl;
+    cout << "A maradék terület: " << maradek << " négyzetméter." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
+                <h2 id="valtozok" class="fw-bold">3. Változók</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-1">3.1. feladat</h3>
+                Kérjünk be karaktereket egyesével a SPACE (szóköz) végjelig, majd írjuk ki a karaktert az ASCII kódjával.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+#include &lt;cctype>
+
+using namespace std;
+
+int main() {
+  SetConsoleOutputCP(65001);
+
+  char c; // karaktert tároló változó
+  cout << "Karaktereket be SPACE-ig:" << endl; // kiírjuk az utasítást
+  do {
+    cin.get(c); // beolvassuk a karaktert
+    if (!isspace((int)c)) {
+      cout << c << " " << (int)c << endl; // kiírjuk a karaktert és az ASCII kódját
+    }
+  } while (!isspace((int)c)); // ismételjük, amíg nem SPACE-t kapunk
+
+  // WHILE ciklussal
+  /*while (cin.get(c) && !isspace((int)c)) {
+    cout << (int)c << endl;
+  }*/
+
+  system("pause");
+  return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-2">3.2. feladat</h3>
+                Kérjünk be karaktereket a <code>getchar()</code> függvénnyel az EOF végjelig, számláljuk meg, hogy hány
+                karaktert adtunk meg.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int count = 0;
+    char c;
+    while (cin.get(c)) {
+        count++;
+    }
+    cout << "A megadott karakterek szama: " << count << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-3">3.3. feladat</h3>
+                Kérjünk be szám karaktereket és írjuk ki azokat a nevükkel (1 – egy stb.). Használjuk a <code>getchar()</code>
+                függvényt. Nem szám karakter megadásakor adjunk hibajelzést.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Kérjünk be szám karaktereket (EOF végjelig): " << endl;
+
+    char c;
+    while ((c = getchar()) != EOF || c == '\n') {
+        char names[10][10] = {
+            "nulla", "egy", "kettő", "három", "négy",
+            "öt", "hat", "hét", "nyolc", "kilenc"
+        };
+
+        if (c >= '0' && c <= '9') {
+            cout << c << " - " << names[c - '0'] << endl;
+        } else if (c != '\n') {
+            cout << c << " - Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+        }
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-4">3.4. feladat</h3>
+                Kérjünk be szám karaktereket, írjuk ki, hogy páros vagy páratlan számot adtunk meg, valamint
+                számláljuk meg, hogy hány páros és hány páratlan számot adtunk meg. A ciklust az EOF-ig tartson.
+                Használjuk a <code>getchar()</code> függvényt. Nem szám karakter megadásakor adjunk hibajelzést.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+
+    char karakter;
+    int parosDb = 0;
+    int paratlanDb = 0;
+
+    while ((karakter = getchar()) != EOF || karakter == '\n') {
+        if (karakter >= '0' && karakter <= '9') {
+            int szam = karakter - '0';
+            if (szam % 2 == 0) {
+                cout << "Páros" << endl;
+                parosDb++;
+            } else {
+                cout << "Páratlan" << endl;
+                paratlanDb++;
+            }
+        } else if (karakter != '\n') {
+            cout << "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+            cin.ignore();
+        }
+    }
+
+    cout << "Összesen " << parosDb << " páros és " << paratlanDb << " páratlan számot adott meg." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-5">3.5. feladat</h3>
+                Kérjünk be szám karaktereket és alakítsuk át azokat egész számmá. A ciklust az EOF-ig tartson.
+                Nem szám karakter megadásakor adjunk hibajelzést.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;typeinfo>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+
+    char karakter;
+    int szam;
+
+    while ((karakter = getchar()) != EOF || karakter == '\n') {
+        if (karakter >= '0' && karakter <= '9') {
+            szam = karakter - '0';
+            cout << "Megadott karakter: " << karakter << " (" << typeid(karakter).name() << ")" << ". Egész szám: " << szam << " (" << typeid(szam).name() << ")" << endl;
+        } else if (karakter != '\n') {
+            cout << "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+            cin.ignore();
+        }
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-6">3.6. feladat</h3>
+                Készítsen programot, amely bekér egy karaktert, majd kiírja az ASCII kódját, decimálisan, oktálisan és hexadecimálisan.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    char c;
+    cout << "Adjon meg egy karaktert: ";
+    cin >> c;
+
+    cout << "ASCII kódja decimálisan: " << static_cast&lt;int>(c) << endl;
+    cout << "ASCII kódja oktálisan: " << oct << static_cast&lt;int>(c) << endl;
+    cout << "ASCII kódja hexadecimálisan: " << hex << static_cast&lt;int>(c) << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-7">3.7. feladat</h3>
+                A program kérjen be karaktereket EOF végjelig.
+                Határozza meg, hogy hány darab kisbetű karaktert adtunk meg. A feladatot hátul tesztelő ciklussal oldja meg!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adjon meg karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+
+    char karakter;
+    int kisbetuDb = 0;
+
+    while ((karakter = getchar()) != EOF && karakter != '\n') {
+        if (karakter >= 'a' && karakter <= 'z') {
+            kisbetuDb++;
+        }
+    }
+
+    cout << "A megadott karakterek között " << kisbetuDb << " darab kisbetű karakter van." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-14">3.14. feladat</h3>
+                Készítsen programot, amely bekér egy számot majd átalakítja bináris számmá és kiírja azt.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int szam;
+
+    cout << "Adjon meg egy számot: ";
+    cin >> szam;
+
+    if (szam == 0) {
+        cout << "A szám bináris alakja: 0" << endl;
+    } else {
+        cout << "A szám bináris alakja: ";
+        bool elsoJelentosHelyiertek = false;  // Segédváltozó a vezető nullák kiszűréséhez
+
+        for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+            int bit = (szam >> i) & 1;
+
+            if (bit == 1) {
+                elsoJelentosHelyiertek = true;  // Első jelentős helyiérték
+            }
+
+            if (elsoJelentosHelyiertek) {
+                cout << bit;
+            }
+        }
+    }
+
+    cout << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-15">3.15. feladat</h3>
+                Készítsen programot a másodfokú egyenlet megoldásához. Az együtthatókat billentyűzetről kérje be.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+#include &lt;cmath>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double a, b, c;
+
+    cout << "Adja meg az 'a' együtthatót: ";
+    cin >> a;
+
+    cout << "Adja meg a 'b' együtthatót: ";
+    cin >> b;
+
+    cout << "Adja meg a 'c' együtthatót: ";
+    cin >> c;
+
+    double discriminant = pow(b, 2) - 4 * a * c;
+
+    if (discriminant > 0) {
+        double x1 = (-b + sqrt(discriminant)) / (2 * a);
+        double x2 = (-b - sqrt(discriminant)) / (2 * a);
+        cout << "Az egyenlet valós gyökei: x1 = " << x1 << ", x2 = " << x2 << endl;
+    } else if (discriminant == 0) {
+        double x = -b / (2 * a);
+        cout << "Az egyenlet valós gyökei: x1 = x2 = " << x << endl;
+    } else {
+        cout << "Az egyenletnek nincsenek valós gyökei." << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-16">3.16. feladat</h3>
+                Kérjünk be egy egész számot, majd írjuk ki a számjegyeket fordított sorrendbe.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int szam;
+
+    cout << "Adjon meg egy egész számot: ";
+    cin >> szam;
+
+    cout << "A számjegyek fordított sorrendben: ";
+
+    while (szam > 0) {
+        int szamjegy = szam % 10;
+        cout << szamjegy << " ";
+        szam /= 10;
+    }
+
+    cout << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="valtozok-17">3.17. feladat</h3>
+                Határozza meg két szám legnagyobb közös osztóját. Használja a korábban ismertetett euklideszi algoritmust.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int szam1, szam2;
+
+    cout << "Adja meg az első számot: ";
+    cin >> szam1;
+
+    cout << "Adja meg a második számot: ";
+    cin >> szam2;
+
+    /*
+    Példa: 84 és 18 legnagyobb közös osztója
+    ----------------------------------------
+    Először elosztjuk 84-et 18-cal, a hányados 4, a maradék 12.
+    Utána elosztjuk 18-at 12-vel, a hányados 1, a maradék 6.
+    Ezután elosztjuk 12-t 6-tal a hányados 2, a maradék 0.
+    Itt megállt az algoritmus, nincs következő lépés, mivel 0-val nem lehet osztani.
+    Tehát az utolsó nem nulla maradék a 6, azaz 84 és 18 legnagyobb közös osztója 6.
+    */
+    while (szam2 != 0) {
+        int temp = szam2;
+        szam2 = szam1 % szam2;
+        szam1 = temp;
+    }
+
+    int legnagyobbKozosOszto = szam1;
+
+    cout << "A két szám legnagyobb közös osztója: " << legnagyobbKozosOszto << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
+                <h2 id="osszetett-adattipusok" class="fw-bold">8. Összetett adattípusok</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-1">8.1. feladat</h3>
+                Készítse el a következő struktúrát:
+                <ul>
+                    <li>név (karaktertömb),</li>
+                    <li>életkor (egész),</li>
+                    <li>testmagasság (lebegőpontos).</li>
+                </ul>
+                Töltsön fel egy struktúratömböt legalább három különböző adattal.<br>
+                Függvény segítségével határozza meg a legmagasabb ember nevét. A függvény paramétere a
+                tömb, függvényérték a név legyen. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+struct Person {
+    char name[20];
+    int age;
+    float height;
+};
+
+Person getTallestPerson(Person *people, int size) {
+    Person tallestPerson = people[0];
+    for (int i = 1; i < size; i++) {
+        if (people[i].height > tallestPerson.height) {
+            tallestPerson = people[i];
+        }
+    }
+    return tallestPerson;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Person people[] = {
+        {"John Doe", 30, 1.80},
+        {"Jane Doe", 25, 1.70},
+        {"Peter Smith", 20, 1.90}
+    };
+
+    Person tallest = getTallestPerson(people, sizeof(people) / sizeof(Person));
+    cout << "A legmagasabb ember neve: " << tallest.name << endl;
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-2">8.2. feladat</h3>
+                Készítse el a következő struktúrát:
+                <ul>
+                    <li>név (karaktertömb),</li>
+                    <li>életkor (egész),</li>
+                    <li>testmagasság (lebegőpontos).</li>
+                </ul>
+                Töltsön fel egy struktúratömböt legalább három különböző adattal.<br>
+                Függvény segítségével határozza meg a legidősebb ember magasságát. A függvény paramétere a
+                tömb, függvényérték a magasság legyen. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+struct Person {
+    char name[20];
+    int age;
+    float height;
+};
+
+float getTallestHeightOfOldest(Person* people, int size) {
+    int oldestAge = people[0].age;
+    // float tallestHeightOfOldest = people[0].height;
+    int tallestHeightOfOldestIndex = 0;
+
+    for (int i = 1; i < size; i++) {
+        if (people[i].age > oldestAge) {
+            oldestAge = people[i].age;
+            // tallestHeightOfOldest = people[i].height;
+            tallestHeightOfOldestIndex = i;
+        }
+    }
+    // return tallestHeightOfOldest;
+    return people[tallestHeightOfOldestIndex].height;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Person people[] = {
+        {"John Doe", 30, 1.80},
+        {"Jane Doe", 42, 1.70},
+        {"Peter Smith", 40, 1.90}
+    };
+
+    int size = sizeof(people) / sizeof(people[0]);
+    float tallestHeightOfOldest = getTallestHeightOfOldest(people, size);
+    cout << "A legidősebb ember magassága: " << tallestHeightOfOldest << " m" << endl;
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-3">8.3. feladat</h3>
+                Készítse el a következő struktúrát:
+                <ul>
+                    <li>azonosító egész,</li>
+                    <li>név karaktertömb,</li>
+                    <li>fizetés lebegőpontos.</li>
+                </ul>
+                Töltsön fel egy struktúratömböt legalább három különböző adattal.<br>
+                Függvény segítségével határozza meg a legtöbbet kereső ember nevét. A függvény paramétere a
+                tömb, függvényérték a név legyen. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+struct Employee {
+    int id;
+    char name[20];
+    float salary;
+};
+
+string getHighestEarnerName(Employee* employees, int size) {
+    float highestSalary = employees[0].salary;
+    int highestEarnerIndex = 0;
+
+    for (int i = 1; i < size; i++) {
+        if (employees[i].salary > highestSalary) {
+            highestSalary = employees[i].salary;
+            highestEarnerIndex = i;
+        }
+    }
+    return employees[highestEarnerIndex].name;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Employee employees[] = {
+        {101, "John Doe", 2500.0},
+        {102, "Jane Doe", 3200.0},
+        {103, "Peter Smith", 2900.0}
+    };
+
+    int size = sizeof(employees) / sizeof(employees[0]);
+    string highestEarnerName = getHighestEarnerName(employees, size);
+    cout << "A legtöbbet kereső ember neve: " << highestEarnerName << endl;
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-4">8.4. feladat</h3>
+                Készítse el a következő struktúrát:
+                <ul>
+                    <li>név (karaktertömb),</li>
+                    <li>életkor (egész),</li>
+                    <li>testmagasság (lebegőpontos).</li>
+                </ul>
+                Töltsön fel egy struktúratömböt legalább három különböző adattal.<br>
+                Függvények segítségével határozza meg az átlagmagasságot és az átlagéletkort.
+                A függvények paramétere a tömb, függvényérték az átlag legyen. Az eredményeket a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+struct Person {
+    char name[20];
+    int age;
+    float height;
+};
+
+float getAverageHeight(Person* people, int size) {
+    float totalHeight = 0;
+    for (int i = 0; i < size; i++) {
+        totalHeight += people[i].height;
+    }
+    return static_cast&lt;float>(totalHeight) / size;
+}
+
+float getAverageAge(Person* people, int size) {
+    int totalAge = 0;
+    for (int i = 0; i < size; i++) {
+        totalAge += people[i].age;
+    }
+    return static_cast&lt;float>(totalAge) / size;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Person people[] = {
+        {"John Doe", 31, 1.85},
+        {"Jane Doe", 25, 1.70},
+        {"Peter Smith", 20, 1.90}
+    };
+    int size = sizeof(people) / sizeof(people[0]);
+
+    float averageHeight = getAverageHeight(people, size);
+    float averageAge = getAverageAge(people, size);
+
+    cout << "Az átlagmagasság: " << averageHeight << " m" << endl;
+    cout << "Az átlagéletkor: " << averageAge << " év" << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-5">8.5. feladat</h3>
+                Készítse el a következő struktúrát:
+                <ul>
+                    <li>azonosító (egész),</li>
+                    <li>életkor (egész),</li>
+                    <li>fizetés (lebegőpontos).</li>
+                </ul>
+                Töltsön fel egy struktúratömböt legalább három különböző adattal.<br>
+                Függvény segítségével határozza meg a legidősebb ember fizetését. A függvény paramétere a
+                tömb, függvényérték a fizetés legyen. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+struct Person {
+    int id;
+    int age;
+    float salary;
+};
+
+float getSalaryOfOldest(Person* people, int size) {
+    int oldestAge = people[0].age;
+    float salaryOfOldest = people[0].salary;
+
+    for (int i = 1; i < size; i++) {
+        if (people[i].age > oldestAge) {
+            oldestAge = people[i].age;
+            salaryOfOldest = people[i].salary;
+        }
+    }
+    return salaryOfOldest;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Person people[] = {
+        {101, 30, 2500.0},
+        {102, 25, 3200.0},
+        {103, 40, 2900.0}
+    };
+
+    int size = sizeof(people) / sizeof(people[0]);
+    float salaryOfOldest = getSalaryOfOldest(people, size);
+    cout << "A legidősebb ember fizetése: " << salaryOfOldest << " HUF" << endl;
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="osszetett-adattipusok-6">8.6. feladat</h3>
+                Készítsen egy programot e-mail címek nyilvántartására, az adatok: <i>név</i> és <i>e-mail</i>, ezeket egy struktúra-tömbben tárolja.
+                A tömböt tetszőleges számú elememmel töltse fel. A feltöltéshez és a kiíráshoz használjon függvényt.<br>
+                Az előző programot egészítse ki olyan függvénnyel, amelyik név szerint keres a tömbben.<br>
+                Az előző feladatokat egészítse ki olyan függvénnyel, amely a megtalált nevet és a hozzá tartozó
+                címet kitörli a tömbből.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+const int MAXN = 100;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    char nevek[MAXN][100];
+    int telefonok[MAXN];
+
+    // Adatok feltöltése
+    int i = 0;
+    while (i < MAXN) {
+        cout << "Adja meg a(z) " << i + 1 << ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
+        if (!cin.getline(nevek[i], 100)) {
+            break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
+        }
+
+        if (nevek[i][0] == '#') {
+            break;
+        }
+
+        cout << "Adja meg a(z) " << i + 1 << ". telefonszámot: ";
+        cin >> telefonok[i];
+
+        cin.ignore(); // Buffer ürítése az új sor karakter miatt
+
+        i++;
+    }
+
+    cin.clear(); // Az EOF jelzés törlése a bemeneti állapotban
+
+    // Telefonszám bekérése
+    int bekertTelefon;
+    cout << "Adjon meg egy telefonszámot: ";
+    cin >> bekertTelefon;
+
+    // Név keresése és kiírása
+    bool talalt = false;
+    for (int j = 0; j < i; j++) {
+        if (telefonok[j] == bekertTelefon) {
+            cout << "A(z) " << bekertTelefon << " telefonszámhoz tartozó név: " << nevek[j] << endl;
+            talalt = true;
+            break;
+        }
+    }
+
+    if (!talalt) {
+        cout << "Nem található név a(z) " << bekertTelefon << " telefonszámmal." << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="scroll-indicator">
+    <div id="scrollIndicatorBar" class="progress-bar"></div>
+</div>
+<div class="scroll-top"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<script src="/assets/js/toc-script.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script>
+    myPlugin.init({
+        // Selectors
+        selectorHeaders: 'h2, h3, h4, h5, h6',
+        selectorTocs: '[data-toc="tartalomjegyzek"]',
+        // Classes
+        initClass: 'js-toc-custom',
+    });
+
+    document.querySelectorAll("[data-toc='tartalomjegyzek'] ul li a").forEach((item) => item.classList.add("nav-link"));
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.forJS');
+
+    function changeLinkState() {
+        let index = sections.length - 1;
+        while (index >= 0 && window.scrollY + 1 < sections[index].offsetTop) index--;
+        links.forEach((link) => link.classList.remove('active'));
+        links[index]?.classList.add('active');
+    }
+
+    function scrollToSection(event) {
+        event.preventDefault();
+        const targetId = event.target.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (!targetSection) return;
+        const offsetTop = targetSection.offsetTop;
+        window.scroll({top: offsetTop, behavior: 'smooth'});
+    }
+
+    links.forEach((link) => link.addEventListener('click', scrollToSection));
+    window.addEventListener('scroll', changeLinkState);
+</script>
+</body>
+</html>
