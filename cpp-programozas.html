@@ -821,6 +821,381 @@ int main() {
                 </div>
             </section>
             <section class="forJS mt-5">
+                <h2 id="sztringek" class="fw-bold">6. Sztringek</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-1">6.1. feladat</h3>
+                Egy tömbbe olvassunk be egy sor szöveget majd számoljuk meg, hogy hány kisbetű karaktert adtunk meg.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int meret = 100;
+    char szoveg[meret];
+
+    cout << "Adjon meg egy sort: ";
+    cin.getline(szoveg, meret);
+
+    int kisbetuDb = 0;
+    for (int i = 0; i < strlen(szoveg); i++) {
+        if (szoveg[i] >= 'a' && szoveg[i] <= 'z') {
+            kisbetuDb++;
+        }
+
+        // Másik megoldás
+        /*if (islower(szoveg[i])) {
+            kisbetuDb++;
+        }*/
+    }
+
+    cout << "A megadott szövegben " << kisbetuDb << " kisbetű található." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-2">6.2. feladat</h3>
+                Egy tömbbe olvasson be egy sor szöveget, majd döntse el, hogy numerikus-e.
+                (Numerikus, ha csak szám karaktereket tartalmaz!)
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int meret = 100;
+    char szoveg[meret];
+
+    cout << "Adjon meg egy sort: ";
+    cin.getline(szoveg, meret);
+
+    bool numerikus = true;
+    for (int i = 0; i < strlen(szoveg); i++) {
+        if (szoveg[i] < '0' || szoveg[i] > '9') {
+            numerikus = false;
+            break;
+        }
+
+        // Másik megoldás
+        /*if (!isdigit(szoveg[i])) {
+            numerikus = false;
+            break;
+        }*/
+    }
+
+    if (numerikus) {
+        cout << "A megadott szoveg numerikus." << endl;
+    } else {
+        cout << "A megadott szoveg nem numerikus." << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-3">6.3. feladat</h3>
+                Olvasson be két egy-egy soros szöveget, majd hasonlítsa össze azokat. Írja ki, hogy
+                megegyeznek, vagy különböznek.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int meret = 100;
+    char szoveg1[meret];
+    char szoveg2[meret];
+
+    cout << "Adjon meg az elso sort: ";
+    cin.getline(szoveg1, meret);
+
+    cout << "Adjon meg a masodik sort: ";
+    cin.getline(szoveg2, meret);
+
+    // strcmp függvény használata
+    /*if (strcmp(szoveg1, szoveg2) == 0) {
+        cout << "A ket szoveg megegyezik." << endl;
+    } else {
+        cout << "A ket szoveg kulonbozik." << endl;
+    }*/
+
+    // függvény nélkül
+    int i = 0;
+    while (szoveg1[i] != '\0' && szoveg2[i] != '\0') {
+        if (szoveg1[i] != szoveg2[i]) {
+            break;
+        }
+        i++;
+    }
+
+    if (szoveg1[i] == '\0' && szoveg2[i] == '\0') {
+        cout << "A ket szoveg megegyezik." << endl;
+    } else {
+        cout << "A ket szoveg kulonbozik." << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-4">6.4. feladat</h3>
+                Egy tömbbe olvassunk be egy sor szöveget, majd vizsgáljuk meg, hogy visszafelé olvasva
+                is ugyanaz-e a jelentése. Az eredményt szövegesen írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;string>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adjon meg egy szöveget: ";
+    string szoveg;
+    getline(cin, szoveg);
+    //int n = szoveg.size();
+
+    string uj_szoveg;
+    for (char c : szoveg) {
+        if (c != ' ') {
+            uj_szoveg += c;
+        }
+    }
+
+    int n = uj_szoveg.size();
+    bool palindrom = true;
+
+    for (int i = 0; i < n / 2; i++) {
+        //if (szoveg[i] != szoveg[n - i - 1]) {
+        if (uj_szoveg[i] != uj_szoveg[n - i - 1]) {
+            palindrom = false;
+            break;
+        }
+    }
+
+    if (palindrom) {
+        cout << "A szöveg palindrom" << endl;
+    } else {
+        cout << "A szöveg nem palindrom" << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-5">6.5. feladat</h3>
+                Egy tömbbe olvassunk be több sor szöveget (EOF jelig), majd számoljuk meg, hogy hány
+                karaktert tartalmaz.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int meret = 100;
+    char szovegek[meret];
+
+    int karakterDb = 0;
+
+    cout << "Adjon meg szovegeket (Ctrl+Z vagy Ctrl+D az EOF-hez):" << endl;
+
+    while (cin.getline(szovegek, meret)) {
+        karakterDb += strlen(szovegek);
+    }
+
+    cout << "A beolvasott szovegek osszesen " << karakterDb << " karaktert tartalmaznak." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-6">6.6. feladat</h3>
+                Egy tömbbe olvassunk be több sor szöveget (EOF jelig), majd számoljuk meg, hogy hány sort tartalmaz.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    string sor;
+    int db = 0;
+    while (getline(cin, sor)) {
+        db++;
+    }
+    cout << "Sorok száma: " << db << endl; // EOF jelzés: CTRL+Z és ENTER
+
+    system("pause");
+    return 0;
+}
+
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-7">6.7. feladat</h3>
+                Töltsön fel egy kétdimenziós szövegtömböt egy-egy soros szöveggel. (Előre ne adja meg a
+                feltöltendő sorok számát. Végjelig folytassa a feltöltést.)
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+    int rows = 0;
+    char array[100][100];
+
+    while (true) {
+        cout << "Adj meg egy sort: ";
+        cin.getline(array[rows], 100);
+
+        if (array[rows][0] == '\0') {
+            break;
+        }
+
+        rows++;
+    }
+
+    cout << "A kétdimenziós szövegtömb: " << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < strlen(array[i]); j++) {
+            cout << array[i][j];
+        }
+        cout << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="sztringek-8">6.8. feladat</h3>
+                Töltsön fel egy kétdimenziós szövegtömböt nevekkel, és egy egész tömböt a nevekhez
+                tartozó telefonszámmal. (A tömbökben azonos indexű elemek tartoznak össze.) Majd kérjen be
+                egy telefonszámot, és írja ki a hozzá tartozó nevet.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+const int MAXN = 100;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    char nevek[MAXN][100];
+    int telefonok[MAXN];
+
+    // Adatok feltöltése
+    int i = 0;
+    while (i < MAXN) {
+        cout << "Adja meg a(z) " << i + 1 << ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
+        if (!cin.getline(nevek[i], 100) || nevek[i][0] == '#') {
+            break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
+        }
+        cout << "Adja meg a(z) " << i + 1 << ". telefonszámot: ";
+        cin >> telefonok[i];
+        cin.ignore(); // Buffer ürítése az új sor karakter miatt
+        i++;
+    }
+
+    cin.clear(); // Az EOF jelzés törlése a bemeneti állapotban
+
+    // Telefonszám bekérése
+    int bekertTelefon;
+    cout << "Adjon meg egy telefonszámot: ";
+    cin >> bekertTelefon;
+
+    // Név keresése és kiírása
+    bool talalt = false;
+    for (int j = 0; j < i; j++) {
+        if (telefonok[j] == bekertTelefon) {
+            cout << "A(z) " << bekertTelefon << " telefonszámhoz tartozó név: " << nevek[j] << endl;
+            talalt = true;
+            break;
+        }
+    }
+
+    if (!talalt) {
+        cout << "Nem található név a(z) " << bekertTelefon << " telefonszámmal." << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
                 <h2 id="osszetett-adattipusok" class="fw-bold">8. Összetett adattípusok</h2>
             </section>
             <section class="forJS">
