@@ -821,6 +821,407 @@ int main() {
                 </div>
             </section>
             <section class="forJS mt-5">
+                <h2 id="tombok-mutatok" class="fw-bold">5. Tömbök és mutatók</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-1">5.1. feladat</h3>
+                A program egy tetszőleges méretű (lebegőpontos) tömböt töltsön fel hőmérsékletekkel.
+                Határozza meg, hogy a tömbben hány 0 és 100 fok közötti hőmérséklet található.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adja meg a tömb méretét: ";
+    int meret;
+    cin >> meret;
+
+    float tomb[meret];
+
+    cout << "Adja meg a hőmérsékleteket:" << endl;
+    for (int i = 0; i < meret; i++) {
+        cin >> tomb[i];
+    }
+
+    int db = 0;
+
+    for (int i = 0; i < meret; i++) {
+        if (tomb[i] >= 0 && tomb[i] <= 100) {
+            db++;
+        }
+    }
+
+    cout << "A tömbben " << db << " darab 0 és 100 fok közötti hőmérséklet található." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-2">5.2. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel életkorokkal. Számolja meg, hogy hány
+                30-59 év közötti életkor található a tömbben.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adja meg a tömb méretét: ";
+    int meret;
+    cin >> meret;
+
+    int tomb[meret];
+
+    cout << "Adja meg az életkorokat:" << endl;
+    for (int i = 0; i < meret; i++) {
+        cin >> tomb[i];
+    }
+
+    int db = 0;
+
+    for (int i = 0; i < meret; i++) {
+        if (tomb[i] >= 30 && tomb[i] <= 59) {
+            db++;
+        }
+    }
+
+    cout << "A tömbben " << db << " darab 30 és 59 év közötti életkor található." << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-3">5.3. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel osztályzatokkal. Számítsa ki a tömbben lévő
+                osztályzatok átlagát.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    cout << "Adja meg a tömb méretét: ";
+    int meret;
+    cin >> meret;
+
+    int tomb[meret];
+
+    //cout << "Adja meg az osztályzatokat:" << endl;
+    cout << "Adja meg az osztályzatokat (1 és 5 között):" << endl;
+    for (int i = 0; i < meret; i++) {
+        //cin >> tomb[i];
+
+        int osztalyzat;
+        cin >> osztalyzat;
+
+        while (osztalyzat < 1 || osztalyzat > 5) {
+            cout << "Hibás osztályzat! Adjon meg újra (1 és 5 között):" << endl;
+            cin >> osztalyzat;
+        }
+
+        tomb[i] = osztalyzat;
+    }
+
+    int osszeg = 0;
+    for (int i = 0; i < meret; i++) {
+        osszeg += tomb[i];
+    }
+
+    double atlag = static_cast&lt;double>(osszeg) / meret;
+
+    cout << "Az osztályzatok átlaga: " << atlag << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-5">5.5. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel hónapok sorszámaival. A tömbben tárolt
+                adatok alapján írja ki a hónapok melyik évszakban találhatók („tavasz”, „nyár”, „ősz”, „tél”).
+                Hibás adatmegadás esetén adjon hibajelzést!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout << "Adja meg a tömb méretét: ";
+    cin >> meret;
+
+    int tomb[meret];
+
+    cout << "Adja meg a hónapok sorszámait (1 és 12 között):" << endl;
+    for (int i = 0; i < meret; i++) {
+        cin >> tomb[i];
+
+        while (tomb[i] < 1 || tomb[i] > 12) {
+            cout << "Hibás sorszám! Adjon meg újat (1 és 12 között):" << endl;
+            cin >> tomb[i];
+        }
+    }
+
+    cout << "A hónapok évszakai:" << endl;
+    for (int i = 0; i < meret; i++) {
+        switch (tomb[i]) {
+            case 3:
+            case 4:
+            case 5:
+                cout << "Tavasz" << endl;
+                break;
+            case 6:
+            case 7:
+            case 8:
+                cout << "Nyár" << endl;
+                break;
+            case 9:
+            case 10:
+            case 11:
+                cout << "Ősz" << endl;
+                break;
+            case 12:
+            case 1:
+            case 2:
+                cout << "Tél" << endl;
+                break;
+        }
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-6">5.6. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel napok sorszámaival (1-től 7-ig). Írja ki – a
+                tömbben tárolt adatok alapján – a napok nevét („hétfő”, „kedd”, stb.). Hibás adatmegadás esetén
+                adjon hibajelzést!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout << "Adja meg a tömb méretét (1 és 7 közötti érték): ";
+    cin >> meret;
+
+    while (meret < 1 || meret > 7) {
+        cout << "Hibás méret! Adjon meg újat (1 és 7 közötti érték): ";
+        cin >> meret;
+    }
+
+    string napok[] = { "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vasárnap" };
+    int tomb[meret];
+
+    cout << "Adja meg a napok sorszámait (1 és 7 között):" << endl;
+    for (int i = 0; i < meret; i++) {
+        cin >> tomb[i];
+
+        while (tomb[i] < 1 || tomb[i] > 7) {
+            cout << "Hibás sorszám! Adjon meg újat (1 és 7 között): ";
+            cin >> tomb[i];
+        }
+    }
+
+    cout << "A napok nevei:" << endl;
+    for (int i = 0; i < meret; i++) {
+        cout << napok[tomb[i] - 1] << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-7">5.7. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel számokkal. Határozza meg, hogy a
+                tömbben hány páros és hány páratlan szám található.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout << "Adja meg a tömb méretét: ";
+    cin >> meret;
+
+    int tomb[meret];
+
+    cout << "Adja meg a számokat:" << endl;
+    for (int i = 0; i < meret; i++) {
+        cin >> tomb[i];
+    }
+
+    int parosSzamok = 0;
+    int paratlanSzamok = 0;
+
+    for (int i = 0; i < meret; i++) {
+        if (tomb[i] % 2 == 0) {
+            parosSzamok++;
+        } else {
+            paratlanSzamok++;
+        }
+    }
+
+    cout << "A tömbben található páros számok száma: " << parosSzamok << endl;
+    cout << "A tömbben található páratlan számok száma: " << paratlanSzamok << endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-11">5.11. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel születési évekkel, majd olvassa be az
+                aktuális évszámot. Határozza meg az életkorokat és azt, hogy hány 45 év feletti életkor van.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int MAXN = 100;
+    int szuletesi_ev[MAXN], n = 0, ev, aktualis_ev, db_45_felett = 0;
+
+    cout << "Adja meg a születési éveket (vége: -1):" << endl;
+
+    while (cin >> ev && ev != -1) {
+        if (n == MAXN) {
+            cout << "A tömb túl nagy." << endl;
+            return 0;
+        }
+        szuletesi_ev[n++] = ev;
+    }
+
+    cout << "Adja meg az aktuális évszámot:" << endl;
+    cin >> aktualis_ev;
+
+    cout << "Életkorok:" << endl;
+
+    for (int i = 0; i < n; i++) {
+        int eletkor = aktualis_ev - szuletesi_ev[i];
+        cout << eletkor << " ";
+        if (eletkor > 45) {
+            db_45_felett++;
+        }
+    }
+
+    cout << endl;
+    cout << "45 év feletti életkorok száma: " << db_45_felett << endl;
+
+    system("pause");
+    return 0;
+}
+
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-14">5.14. feladat</h3>
+                Olvasson be egy tömbbe (legalább 3 karakterből álló) karaktersorozatot. Határozza meg és írja
+                ki az első, utolsó és a középső elemet (páros számú karakterek esetén két középső elem van).
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int MAX_MERET = 100;
+    char karakterek[MAX_MERET];
+
+    cout << "Adja meg a karaktersorozatot: ";
+    cin.getline(karakterek, MAX_MERET);
+
+    int meret = strlen(karakterek);
+
+    if (meret >= 3) {
+        cout << "Első karakter: " << karakterek[0] << endl;
+        cout << "Utolsó karakter: " << karakterek[meret - 1] << endl;
+        cout << "Középső karakter(ek): ";
+        if (meret % 2 == 0) {
+            cout << karakterek[meret / 2 - 1] << " " << karakterek[meret / 2];
+        } else {
+            cout << karakterek[meret / 2];
+        }
+        cout << endl;
+    } else {
+        cout << "A karaktersorozat túl rövid!" << endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
                 <h2 id="sztringek" class="fw-bold">6. Sztringek</h2>
             </section>
             <section class="forJS">
