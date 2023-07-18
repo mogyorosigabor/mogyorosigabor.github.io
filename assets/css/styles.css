@@ -289,7 +289,8 @@ footer ul li.list-inline-item {
     /*height: calc(100vh - 4rem);*/
 }
 
-[data-toc="tartalomjegyzek"] .nav-link.active, [data-toc="tartalomjegyzek"] .nav-link:hover {
+[data-toc="tartalomjegyzek"] .nav-link.active, [data-toc="tartalomjegyzek"] .nav-link:hover,
+[data-toc="tartalomjegyzek"] ul li:has(li > .nav-link.active) > .nav-link {
     color: var(--bs-danger);
     font-weight: bold;
 }
