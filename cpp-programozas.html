@@ -56,14 +56,14 @@ int main() {
     double belsoSugar, kulsoSugar, uvegAr;
     double terulet, uvegKoltseg;
 
-    cout << "Add meg a belső sugár méretét (méterben): ";
-    cin >> belsoSugar;
+    cout &lt;&lt; "Add meg a belső sugár méretét (méterben): ";
+    cin &gt;&gt; belsoSugar;
 
-    cout << "Add meg a külső sugár méretét (méterben): ";
-    cin >> kulsoSugar;
+    cout &lt;&lt; "Add meg a külső sugár méretét (méterben): ";
+    cin &gt;&gt; kulsoSugar;
 
-    cout << "Add meg az üveg árát (Ft/m2-ben): ";
-    cin >> uvegAr;
+    cout &lt;&lt; "Add meg az üveg árát (Ft/m2-ben): ";
+    cin &gt;&gt; uvegAr;
 
     // Üveggyűrű területének kiszámítása
     terulet = M_PI * (pow(kulsoSugar, 2) - pow(belsoSugar, 2));
@@ -71,7 +71,7 @@ int main() {
     // Üvegköltség kiszámítása
     uvegKoltseg = terulet * uvegAr;
 
-    cout << "Az üvegezés költsége: " << uvegKoltseg << " Ft" << endl;
+    cout &lt;&lt; "Az üvegezés költsége: " &lt;&lt; uvegKoltseg &lt;&lt; " Ft" &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -99,17 +99,17 @@ int main() {
     double tartalyMagassag, tartalySzelesseg, tartalyHossz;
     double vizhozam;
 
-    cout << "Add meg a tartály magasságát (méterben): ";
-    cin >> tartalyMagassag;
+    cout &lt;&lt; "Add meg a tartály magasságát (méterben): ";
+    cin &gt;&gt; tartalyMagassag;
 
-    cout << "Add meg a tartály szélességét (méterben): ";
-    cin >> tartalySzelesseg;
+    cout &lt;&lt; "Add meg a tartály szélességét (méterben): ";
+    cin &gt;&gt; tartalySzelesseg;
 
-    cout << "Add meg a tartály hosszát (méterben): ";
-    cin >> tartalyHossz;
+    cout &lt;&lt; "Add meg a tartály hosszát (méterben): ";
+    cin &gt;&gt; tartalyHossz;
 
-    cout << "Add meg a vízhozamot (liter/másodperc): ";
-    cin >> vizhozam;
+    cout &lt;&lt; "Add meg a vízhozamot (liter/másodperc): ";
+    cin &gt;&gt; vizhozam;
 
     // Tartály térfogatának kiszámítása
     double tartalyTerfogat = tartalyMagassag * tartalySzelesseg * tartalyHossz;
@@ -117,7 +117,7 @@ int main() {
     // Idő kiszámítása a tartály megteléséhez
     double ido = (tartalyTerfogat) / (vizhozam); // átváltás literből köbméterre
 
-    cout << "A tartály megtelik " << ido << " másodperc alatt." << endl;
+    cout &lt;&lt; "A tartály megtelik " &lt;&lt; ido &lt;&lt; " másodperc alatt." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -146,14 +146,14 @@ int main() {
     double oldalhossz, magassag, fajsuly;
     double gulaTerfogat, gulaTomeg;
 
-    cout << "Add meg a gúla alapjának oldalhosszát (méterben): ";
-    cin >> oldalhossz;
+    cout &lt;&lt; "Add meg a gúla alapjának oldalhosszát (méterben): ";
+    cin &gt;&gt; oldalhossz;
 
-    cout << "Add meg a gúla magasságát (méterben): ";
-    cin >> magassag;
+    cout &lt;&lt; "Add meg a gúla magasságát (méterben): ";
+    cin &gt;&gt; magassag;
 
-    cout << "Add meg a gúla anyagának fajsúlyát (kg/m3-ben): ";
-    cin >> fajsuly;
+    cout &lt;&lt; "Add meg a gúla anyagának fajsúlyát (kg/m3-ben): ";
+    cin &gt;&gt; fajsuly;
 
     // Gúla térfogatának kiszámítása
     gulaTerfogat = (1.0 / 3.0) * pow(oldalhossz, 2) * magassag;
@@ -161,7 +161,7 @@ int main() {
     // Gúla tömegének kiszámítása
     gulaTomeg = gulaTerfogat * fajsuly;
 
-    cout << "A gúla tömege: " << gulaTomeg << " kg" << endl;
+    cout &lt;&lt; "A gúla tömege: " &lt;&lt; gulaTomeg &lt;&lt; " kg" &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -190,14 +190,14 @@ int main() {
     double sugar, magassag, festekMennyiseg;
     double hengerFelulet, festekMennyisegTeljes;
 
-    cout << "Add meg a henger sugarát (méterben): ";
-    cin >> sugar;
+    cout &lt;&lt; "Add meg a henger sugarát (méterben): ";
+    cin &gt;&gt; sugar;
 
-    cout << "Add meg a henger magasságát (méterben): ";
-    cin >> magassag;
+    cout &lt;&lt; "Add meg a henger magasságát (méterben): ";
+    cin &gt;&gt; magassag;
 
-    cout << "Add meg a festék négyzetméterenként szükséges mennyiségét (liter/m2-ben): ";
-    cin >> festekMennyiseg;
+    cout &lt;&lt; "Add meg a festék négyzetméterenként szükséges mennyiségét (liter/m2-ben): ";
+    cin &gt;&gt; festekMennyiseg;
 
     // Henger felszínének kiszámítása
     hengerFelulet = 2 * M_PI * sugar * (sugar + magassag);
@@ -205,7 +205,7 @@ int main() {
     // Festék teljes mennyiségének kiszámítása
     festekMennyisegTeljes = hengerFelulet * festekMennyiseg;
 
-    cout << "A festékmennyiség a henger lefestéséhez: " << festekMennyisegTeljes << " liter" << endl;
+    cout &lt;&lt; "A festékmennyiség a henger lefestéséhez: " &lt;&lt; festekMennyisegTeljes &lt;&lt; " liter" &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -233,16 +233,16 @@ int main() {
     double beszerzesiAr, haszonkulcs;
     double haszon;
 
-    cout << "Add meg a beszerzési árat: ";
-    cin >> beszerzesiAr;
+    cout &lt;&lt; "Add meg a beszerzési árat: ";
+    cin &gt;&gt; beszerzesiAr;
 
-    cout << "Add meg a haszonkulcsot százalékban: ";
-    cin >> haszonkulcs;
+    cout &lt;&lt; "Add meg a haszonkulcsot százalékban: ";
+    cin &gt;&gt; haszonkulcs;
 
     // Haszon számítása
     haszon = beszerzesiAr * (haszonkulcs / 100.0);
 
-    cout << "A kereskedő haszna: " << haszon << endl;
+    cout &lt;&lt; "A kereskedő haszna: " &lt;&lt; haszon &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -270,19 +270,19 @@ int main() {
     double anyagHosszusag, anyagSzelesseg, ruhaTerulet;
     int ruhaDarab;
 
-    cout << "Add meg az anyag hosszúságát (méterben): ";
-    cin >> anyagHosszusag;
+    cout &lt;&lt; "Add meg az anyag hosszúságát (méterben): ";
+    cin &gt;&gt; anyagHosszusag;
 
-    cout << "Add meg az anyag szélességét (méterben): ";
-    cin >> anyagSzelesseg;
+    cout &lt;&lt; "Add meg az anyag szélességét (méterben): ";
+    cin &gt;&gt; anyagSzelesseg;
 
-    cout << "Add meg az egy ruhához szükséges anyag területét (négyzetméterben): ";
-    cin >> ruhaTerulet;
+    cout &lt;&lt; "Add meg az egy ruhához szükséges anyag területét (négyzetméterben): ";
+    cin &gt;&gt; ruhaTerulet;
 
     // Ruha darabszámának kiszámítása
     ruhaDarab = static_cast&lt;int>(anyagHosszusag / anyagSzelesseg) * static_cast&lt;int>(anyagSzelesseg / ruhaTerulet);
 
-    cout << "A szabászgép " << ruhaDarab << " ruhát tud kiszabni az adott méretű anyagból." << endl;
+    cout &lt;&lt; "A szabászgép " &lt;&lt; ruhaDarab &lt;&lt; " ruhát tud kiszabni az adott méretű anyagból." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -312,14 +312,14 @@ int main() {
     double teglalapTerulet, negyzetTerulet;
     double kisebbseg, maradek;
 
-    cout << "Add meg a téglalap hosszát (méterben): ";
-    cin >> teglalapHossz;
+    cout &lt;&lt; "Add meg a téglalap hosszát (méterben): ";
+    cin &gt;&gt; teglalapHossz;
 
-    cout << "Add meg a téglalap szélességét (méterben): ";
-    cin >> teglalapSzelesseg;
+    cout &lt;&lt; "Add meg a téglalap szélességét (méterben): ";
+    cin &gt;&gt; teglalapSzelesseg;
 
-    cout << "Add meg a négyzet oldalhosszát (méterben): ";
-    cin >> negyzetOldal;
+    cout &lt;&lt; "Add meg a négyzet oldalhosszát (méterben): ";
+    cin &gt;&gt; negyzetOldal;
 
     // Téglalap területének kiszámítása
     teglalapTerulet = teglalapHossz * teglalapSzelesseg;
@@ -333,8 +333,8 @@ int main() {
     // A maradék terület kiszámítása
     maradek = abs(teglalapTerulet - negyzetTerulet);
 
-    cout << "A négyzet területe " << kisebbseg << "x kisebb a téglalap területénél." << endl;
-    cout << "A maradék terület: " << maradek << " négyzetméter." << endl;
+    cout &lt;&lt; "A négyzet területe " &lt;&lt; kisebbseg &lt;&lt; "x kisebb a téglalap területénél." &lt;&lt; endl;
+    cout &lt;&lt; "A maradék terület: " &lt;&lt; maradek &lt;&lt; " négyzetméter." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -362,17 +362,17 @@ int main() {
   SetConsoleOutputCP(65001);
 
   char c; // karaktert tároló változó
-  cout << "Karaktereket be SPACE-ig:" << endl; // kiírjuk az utasítást
+  cout &lt;&lt; "Karaktereket be SPACE-ig:" &lt;&lt; endl; // kiírjuk az utasítást
   do {
     cin.get(c); // beolvassuk a karaktert
     if (!isspace((int)c)) {
-      cout << c << " " << (int)c << endl; // kiírjuk a karaktert és az ASCII kódját
+      cout &lt;&lt; c &lt;&lt; " " &lt;&lt; (int)c &lt;&lt; endl; // kiírjuk a karaktert és az ASCII kódját
     }
   } while (!isspace((int)c)); // ismételjük, amíg nem SPACE-t kapunk
 
   // WHILE ciklussal
   /*while (cin.get(c) && !isspace((int)c)) {
-    cout << (int)c << endl;
+    cout &lt;&lt; (int)c &lt;&lt; endl;
   }*/
 
   system("pause");
@@ -402,7 +402,7 @@ int main() {
     while (cin.get(c)) {
         count++;
     }
-    cout << "A megadott karakterek szama: " << count << endl;
+    cout &lt;&lt; "A megadott karakterek szama: " &lt;&lt; count &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -426,7 +426,7 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Kérjünk be szám karaktereket (EOF végjelig): " << endl;
+    cout &lt;&lt; "Kérjünk be szám karaktereket (EOF végjelig): " &lt;&lt; endl;
 
     char c;
     while ((c = getchar()) != EOF || c == '\n') {
@@ -436,9 +436,9 @@ int main() {
         };
 
         if (c >= '0' && c <= '9') {
-            cout << c << " - " << names[c - '0'] << endl;
+            cout &lt;&lt; c &lt;&lt; " - " &lt;&lt; names[c - '0'] &lt;&lt; endl;
         } else if (c != '\n') {
-            cout << c << " - Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+            cout &lt;&lt; c &lt;&lt; " - Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." &lt;&lt; endl;
         }
     }
 
@@ -465,7 +465,7 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+    cout &lt;&lt; "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." &lt;&lt; endl;
 
     char karakter;
     int parosDb = 0;
@@ -475,19 +475,19 @@ int main() {
         if (karakter >= '0' && karakter <= '9') {
             int szam = karakter - '0';
             if (szam % 2 == 0) {
-                cout << "Páros" << endl;
+                cout &lt;&lt; "Páros" &lt;&lt; endl;
                 parosDb++;
             } else {
-                cout << "Páratlan" << endl;
+                cout &lt;&lt; "Páratlan" &lt;&lt; endl;
                 paratlanDb++;
             }
         } else if (karakter != '\n') {
-            cout << "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+            cout &lt;&lt; "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." &lt;&lt; endl;
             cin.ignore();
         }
     }
 
-    cout << "Összesen " << parosDb << " páros és " << paratlanDb << " páratlan számot adott meg." << endl;
+    cout &lt;&lt; "Összesen " &lt;&lt; parosDb &lt;&lt; " páros és " &lt;&lt; paratlanDb &lt;&lt; " páratlan számot adott meg." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -512,7 +512,7 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+    cout &lt;&lt; "Adjon meg szám karaktereket. A ciklus véget ér az EOF beolvasásával." &lt;&lt; endl;
 
     char karakter;
     int szam;
@@ -520,9 +520,9 @@ int main() {
     while ((karakter = getchar()) != EOF || karakter == '\n') {
         if (karakter >= '0' && karakter <= '9') {
             szam = karakter - '0';
-            cout << "Megadott karakter: " << karakter << " (" << typeid(karakter).name() << ")" << ". Egész szám: " << szam << " (" << typeid(szam).name() << ")" << endl;
+            cout &lt;&lt; "Megadott karakter: " &lt;&lt; karakter &lt;&lt; " (" &lt;&lt; typeid(karakter).name() &lt;&lt; ")" &lt;&lt; ". Egész szám: " &lt;&lt; szam &lt;&lt; " (" &lt;&lt; typeid(szam).name() &lt;&lt; ")" &lt;&lt; endl;
         } else if (karakter != '\n') {
-            cout << "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." << endl;
+            cout &lt;&lt; "Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." &lt;&lt; endl;
             cin.ignore();
         }
     }
@@ -549,12 +549,12 @@ int main() {
     SetConsoleOutputCP(65001);
 
     char c;
-    cout << "Adjon meg egy karaktert: ";
-    cin >> c;
+    cout &lt;&lt; "Adjon meg egy karaktert: ";
+    cin &gt;&gt; c;
 
-    cout << "ASCII kódja decimálisan: " << static_cast&lt;int>(c) << endl;
-    cout << "ASCII kódja oktálisan: " << oct << static_cast&lt;int>(c) << endl;
-    cout << "ASCII kódja hexadecimálisan: " << hex << static_cast&lt;int>(c) << endl;
+    cout &lt;&lt; "ASCII kódja decimálisan: " &lt;&lt; static_cast&lt;int>(c) &lt;&lt; endl;
+    cout &lt;&lt; "ASCII kódja oktálisan: " &lt;&lt; oct &lt;&lt; static_cast&lt;int>(c) &lt;&lt; endl;
+    cout &lt;&lt; "ASCII kódja hexadecimálisan: " &lt;&lt; hex &lt;&lt; static_cast&lt;int>(c) &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -578,7 +578,7 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adjon meg karaktereket. A ciklus véget ér az EOF beolvasásával." << endl;
+    cout &lt;&lt; "Adjon meg karaktereket. A ciklus véget ér az EOF beolvasásával." &lt;&lt; endl;
 
     char karakter;
     int kisbetuDb = 0;
@@ -589,7 +589,7 @@ int main() {
         }
     }
 
-    cout << "A megadott karakterek között " << kisbetuDb << " darab kisbetű karakter van." << endl;
+    cout &lt;&lt; "A megadott karakterek között " &lt;&lt; kisbetuDb &lt;&lt; " darab kisbetű karakter van." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -614,29 +614,29 @@ int main() {
 
     int szam;
 
-    cout << "Adjon meg egy számot: ";
-    cin >> szam;
+    cout &lt;&lt; "Adjon meg egy számot: ";
+    cin &gt;&gt; szam;
 
     if (szam == 0) {
-        cout << "A szám bináris alakja: 0" << endl;
+        cout &lt;&lt; "A szám bináris alakja: 0" &lt;&lt; endl;
     } else {
-        cout << "A szám bináris alakja: ";
+        cout &lt;&lt; "A szám bináris alakja: ";
         bool elsoJelentosHelyiertek = false;  // Segédváltozó a vezető nullák kiszűréséhez
 
         for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
-            int bit = (szam >> i) & 1;
+            int bit = (szam &gt;&gt; i) & 1;
 
             if (bit == 1) {
                 elsoJelentosHelyiertek = true;  // Első jelentős helyiérték
             }
 
             if (elsoJelentosHelyiertek) {
-                cout << bit;
+                cout &lt;&lt; bit;
             }
         }
     }
 
-    cout << endl;
+    cout &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -662,26 +662,26 @@ int main() {
 
     double a, b, c;
 
-    cout << "Adja meg az 'a' együtthatót: ";
-    cin >> a;
+    cout &lt;&lt; "Adja meg az 'a' együtthatót: ";
+    cin &gt;&gt; a;
 
-    cout << "Adja meg a 'b' együtthatót: ";
-    cin >> b;
+    cout &lt;&lt; "Adja meg a 'b' együtthatót: ";
+    cin &gt;&gt; b;
 
-    cout << "Adja meg a 'c' együtthatót: ";
-    cin >> c;
+    cout &lt;&lt; "Adja meg a 'c' együtthatót: ";
+    cin &gt;&gt; c;
 
     double discriminant = pow(b, 2) - 4 * a * c;
 
     if (discriminant > 0) {
         double x1 = (-b + sqrt(discriminant)) / (2 * a);
         double x2 = (-b - sqrt(discriminant)) / (2 * a);
-        cout << "Az egyenlet valós gyökei: x1 = " << x1 << ", x2 = " << x2 << endl;
+        cout &lt;&lt; "Az egyenlet valós gyökei: x1 = " &lt;&lt; x1 &lt;&lt; ", x2 = " &lt;&lt; x2 &lt;&lt; endl;
     } else if (discriminant == 0) {
         double x = -b / (2 * a);
-        cout << "Az egyenlet valós gyökei: x1 = x2 = " << x << endl;
+        cout &lt;&lt; "Az egyenlet valós gyökei: x1 = x2 = " &lt;&lt; x &lt;&lt; endl;
     } else {
-        cout << "Az egyenletnek nincsenek valós gyökei." << endl;
+        cout &lt;&lt; "Az egyenletnek nincsenek valós gyökei." &lt;&lt; endl;
     }
 
     system("pause");
@@ -707,18 +707,18 @@ int main() {
 
     int szam;
 
-    cout << "Adjon meg egy egész számot: ";
-    cin >> szam;
+    cout &lt;&lt; "Adjon meg egy egész számot: ";
+    cin &gt;&gt; szam;
 
-    cout << "A számjegyek fordított sorrendben: ";
+    cout &lt;&lt; "A számjegyek fordított sorrendben: ";
 
     while (szam > 0) {
         int szamjegy = szam % 10;
-        cout << szamjegy << " ";
+        cout &lt;&lt; szamjegy &lt;&lt; " ";
         szam /= 10;
     }
 
-    cout << endl;
+    cout &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -743,11 +743,11 @@ int main() {
 
     int szam1, szam2;
 
-    cout << "Adja meg az első számot: ";
-    cin >> szam1;
+    cout &lt;&lt; "Adja meg az első számot: ";
+    cin &gt;&gt; szam1;
 
-    cout << "Adja meg a második számot: ";
-    cin >> szam2;
+    cout &lt;&lt; "Adja meg a második számot: ";
+    cin &gt;&gt; szam2;
 
     /*
     Példa: 84 és 18 legnagyobb közös osztója
@@ -766,7 +766,7 @@ int main() {
 
     int legnagyobbKozosOszto = szam1;
 
-    cout << "A két szám legnagyobb közös osztója: " << legnagyobbKozosOszto << endl;
+    cout &lt;&lt; "A két szám legnagyobb közös osztója: " &lt;&lt; legnagyobbKozosOszto &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -791,8 +791,8 @@ int main() {
 
     int szam;
 
-    cout << "Adjon meg egy számot: ";
-    cin >> szam;
+    cout &lt;&lt; "Adjon meg egy számot: ";
+    cin &gt;&gt; szam;
 
     bool primszam = true;
 
@@ -808,9 +808,9 @@ int main() {
     }
 
     if (primszam) {
-        cout << szam << " prímszám." << endl;
+        cout &lt;&lt; szam &lt;&lt; " prímszám." &lt;&lt; endl;
     } else {
-        cout << szam << " nem prímszám." << endl;
+        cout &lt;&lt; szam &lt;&lt; " nem prímszám." &lt;&lt; endl;
     }
 
     system("pause");
@@ -838,15 +838,15 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adja meg a tömb méretét: ";
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
     int meret;
-    cin >> meret;
+    cin &gt;&gt; meret;
 
     float tomb[meret];
 
-    cout << "Adja meg a hőmérsékleteket:" << endl;
+    cout &lt;&lt; "Adja meg a hőmérsékleteket:" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cin >> tomb[i];
+        cin &gt;&gt; tomb[i];
     }
 
     int db = 0;
@@ -857,7 +857,7 @@ int main() {
         }
     }
 
-    cout << "A tömbben " << db << " darab 0 és 100 fok közötti hőmérséklet található." << endl;
+    cout &lt;&lt; "A tömbben " &lt;&lt; db &lt;&lt; " darab 0 és 100 fok közötti hőmérséklet található." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -881,15 +881,15 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adja meg a tömb méretét: ";
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
     int meret;
-    cin >> meret;
+    cin &gt;&gt; meret;
 
     int tomb[meret];
 
-    cout << "Adja meg az életkorokat:" << endl;
+    cout &lt;&lt; "Adja meg az életkorokat:" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cin >> tomb[i];
+        cin &gt;&gt; tomb[i];
     }
 
     int db = 0;
@@ -900,7 +900,7 @@ int main() {
         }
     }
 
-    cout << "A tömbben " << db << " darab 30 és 59 év közötti életkor található." << endl;
+    cout &lt;&lt; "A tömbben " &lt;&lt; db &lt;&lt; " darab 30 és 59 év közötti életkor található." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -924,23 +924,23 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adja meg a tömb méretét: ";
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
     int meret;
-    cin >> meret;
+    cin &gt;&gt; meret;
 
     int tomb[meret];
 
-    //cout << "Adja meg az osztályzatokat:" << endl;
-    cout << "Adja meg az osztályzatokat (1 és 5 között):" << endl;
+    //cout &lt;&lt; "Adja meg az osztályzatokat:" &lt;&lt; endl;
+    cout &lt;&lt; "Adja meg az osztályzatokat (1 és 5 között):" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        //cin >> tomb[i];
+        //cin &gt;&gt; tomb[i];
 
         int osztalyzat;
-        cin >> osztalyzat;
+        cin &gt;&gt; osztalyzat;
 
         while (osztalyzat < 1 || osztalyzat > 5) {
-            cout << "Hibás osztályzat! Adjon meg újra (1 és 5 között):" << endl;
-            cin >> osztalyzat;
+            cout &lt;&lt; "Hibás osztályzat! Adjon meg újra (1 és 5 között):" &lt;&lt; endl;
+            cin &gt;&gt; osztalyzat;
         }
 
         tomb[i] = osztalyzat;
@@ -953,7 +953,7 @@ int main() {
 
     double atlag = static_cast&lt;double>(osszeg) / meret;
 
-    cout << "Az osztályzatok átlaga: " << atlag << endl;
+    cout &lt;&lt; "Az osztályzatok átlaga: " &lt;&lt; atlag &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -979,43 +979,43 @@ int main() {
     SetConsoleOutputCP(65001);
 
     int meret;
-    cout << "Adja meg a tömb méretét: ";
-    cin >> meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
 
     int tomb[meret];
 
-    cout << "Adja meg a hónapok sorszámait (1 és 12 között):" << endl;
+    cout &lt;&lt; "Adja meg a hónapok sorszámait (1 és 12 között):" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cin >> tomb[i];
+        cin &gt;&gt; tomb[i];
 
         while (tomb[i] < 1 || tomb[i] > 12) {
-            cout << "Hibás sorszám! Adjon meg újat (1 és 12 között):" << endl;
-            cin >> tomb[i];
+            cout &lt;&lt; "Hibás sorszám! Adjon meg újat (1 és 12 között):" &lt;&lt; endl;
+            cin &gt;&gt; tomb[i];
         }
     }
 
-    cout << "A hónapok évszakai:" << endl;
+    cout &lt;&lt; "A hónapok évszakai:" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
         switch (tomb[i]) {
             case 3:
             case 4:
             case 5:
-                cout << "Tavasz" << endl;
+                cout &lt;&lt; "Tavasz" &lt;&lt; endl;
                 break;
             case 6:
             case 7:
             case 8:
-                cout << "Nyár" << endl;
+                cout &lt;&lt; "Nyár" &lt;&lt; endl;
                 break;
             case 9:
             case 10:
             case 11:
-                cout << "Ősz" << endl;
+                cout &lt;&lt; "Ősz" &lt;&lt; endl;
                 break;
             case 12:
             case 1:
             case 2:
-                cout << "Tél" << endl;
+                cout &lt;&lt; "Tél" &lt;&lt; endl;
                 break;
         }
     }
@@ -1044,30 +1044,30 @@ int main() {
     SetConsoleOutputCP(65001);
 
     int meret;
-    cout << "Adja meg a tömb méretét (1 és 7 közötti érték): ";
-    cin >> meret;
+    cout &lt;&lt; "Adja meg a tömb méretét (1 és 7 közötti érték): ";
+    cin &gt;&gt; meret;
 
     while (meret < 1 || meret > 7) {
-        cout << "Hibás méret! Adjon meg újat (1 és 7 közötti érték): ";
-        cin >> meret;
+        cout &lt;&lt; "Hibás méret! Adjon meg újat (1 és 7 közötti érték): ";
+        cin &gt;&gt; meret;
     }
 
     string napok[] = { "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vasárnap" };
     int tomb[meret];
 
-    cout << "Adja meg a napok sorszámait (1 és 7 között):" << endl;
+    cout &lt;&lt; "Adja meg a napok sorszámait (1 és 7 között):" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cin >> tomb[i];
+        cin &gt;&gt; tomb[i];
 
         while (tomb[i] < 1 || tomb[i] > 7) {
-            cout << "Hibás sorszám! Adjon meg újat (1 és 7 között): ";
-            cin >> tomb[i];
+            cout &lt;&lt; "Hibás sorszám! Adjon meg újat (1 és 7 között): ";
+            cin &gt;&gt; tomb[i];
         }
     }
 
-    cout << "A napok nevei:" << endl;
+    cout &lt;&lt; "A napok nevei:" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cout << napok[tomb[i] - 1] << endl;
+        cout &lt;&lt; napok[tomb[i] - 1] &lt;&lt; endl;
     }
 
     system("pause");
@@ -1093,14 +1093,14 @@ int main() {
     SetConsoleOutputCP(65001);
 
     int meret;
-    cout << "Adja meg a tömb méretét: ";
-    cin >> meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
 
     int tomb[meret];
 
-    cout << "Adja meg a számokat:" << endl;
+    cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
     for (int i = 0; i < meret; i++) {
-        cin >> tomb[i];
+        cin &gt;&gt; tomb[i];
     }
 
     int parosSzamok = 0;
@@ -1114,8 +1114,121 @@ int main() {
         }
     }
 
-    cout << "A tömbben található páros számok száma: " << parosSzamok << endl;
-    cout << "A tömbben található páratlan számok száma: " << paratlanSzamok << endl;
+    cout &lt;&lt; "A tömbben található páros számok száma: " &lt;&lt; parosSzamok &lt;&lt; endl;
+    cout &lt;&lt; "A tömbben található páratlan számok száma: " &lt;&lt; paratlanSzamok &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-8">5.8. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel életkorokkal (maximum 100 éves korig).
+                Majd életkoronként az alábbi szöveget jelenítse meg: ha az életkor 10, 20, 30, 40, 50, 60, 70, 80,
+                100: „Gratulálunk”; 1-29: „Fiatal”; 30-59: Középkorú”; 60-100: „Idős”. (Hibás adatmegadás esetén
+                adjon hibajelzést!)
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    if (meret <= 0) {
+        cout &lt;&lt; "Hibás méret! A tömb mérete nem lehet negatív." &lt;&lt; endl;
+        system("pause");
+        return 1;
+    }
+
+    int tomb[meret];
+
+    cout &lt;&lt; "Adja meg az életkorokat:" &lt;&lt; endl;
+    for (int i = 0; i < meret; i++) {
+        cin &gt;&gt; tomb[i];
+        while (tomb[i] < 1 || tomb[i] > 100) {
+            cout &lt;&lt; "Hibás életkor! Az életkorok 1 és 100 között lehetnek." &lt;&lt; endl;
+            cin &gt;&gt; tomb[i];
+        }
+    }
+
+    cout &lt;&lt; "Életkoronként az alábbi szöveg jelenik meg:" &lt;&lt; endl;
+    for (int i = 0; i < meret; i++) {
+        if (tomb[i] % 10 == 0) {
+                cout &lt;&lt; "Gratulálunk" &lt;&lt; endl;
+            } else if (tomb[i] >= 1 && tomb[i] <= 29) {
+                cout &lt;&lt; "Fiatal" &lt;&lt; endl;
+            } else if (tomb[i] >= 30 && tomb[i] <= 59) {
+                cout &lt;&lt; "Középkorú" &lt;&lt; endl;
+            } else {
+                cout &lt;&lt; "Idős" &lt;&lt; endl;
+            }
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-09">5.9. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel számokkal, majd olvassa be egy [a, b]
+                intervallum alsó és felső határát. Vizsgáljuk meg és írjuk ki, hogy a tömb hány eleme található az
+                intervallumon belül, felette vagy alatta.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    int tomb[meret];
+
+    cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
+    for (int i = 0; i < meret; i++) {
+        cin &gt;&gt; tomb[i];
+    }
+
+    int a, b;
+    cout &lt;&lt; "Adja meg az intervallum alsó határát (a): ";
+    cin &gt;&gt; a;
+    cout &lt;&lt; "Adja meg az intervallum felső határát (b): ";
+    cin &gt;&gt; b;
+
+    int belul = 0, folotte = 0, alatta = 0;
+    for (int i = 0; i < meret; i++) {
+        if (tomb[i] >= a && tomb[i] <= b) {
+            belul++;
+        } else if (tomb[i] > b) {
+            folotte++;
+        } else {
+            alatta++;
+        }
+    }
+
+    cout &lt;&lt; "Az intervallumon belül található elemek száma: " &lt;&lt; belul &lt;&lt; endl;
+    cout &lt;&lt; "Az intervallum fölött található elemek száma: " &lt;&lt; folotte &lt;&lt; endl;
+    cout &lt;&lt; "Az intervallum alatt található elemek száma: " &lt;&lt; alatta &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1142,31 +1255,31 @@ int main() {
     const int MAXN = 100;
     int szuletesi_ev[MAXN], n = 0, ev, aktualis_ev, db_45_felett = 0;
 
-    cout << "Adja meg a születési éveket (vége: -1):" << endl;
+    cout &lt;&lt; "Adja meg a születési éveket (vége: -1):" &lt;&lt; endl;
 
-    while (cin >> ev && ev != -1) {
+    while (cin &gt;&gt; ev && ev != -1) {
         if (n == MAXN) {
-            cout << "A tömb túl nagy." << endl;
+            cout &lt;&lt; "A tömb túl nagy." &lt;&lt; endl;
             return 0;
         }
         szuletesi_ev[n++] = ev;
     }
 
-    cout << "Adja meg az aktuális évszámot:" << endl;
-    cin >> aktualis_ev;
+    cout &lt;&lt; "Adja meg az aktuális évszámot:" &lt;&lt; endl;
+    cin &gt;&gt; aktualis_ev;
 
-    cout << "Életkorok:" << endl;
+    cout &lt;&lt; "Életkorok:" &lt;&lt; endl;
 
     for (int i = 0; i < n; i++) {
         int eletkor = aktualis_ev - szuletesi_ev[i];
-        cout << eletkor << " ";
+        cout &lt;&lt; eletkor &lt;&lt; " ";
         if (eletkor > 45) {
             db_45_felett++;
         }
     }
 
-    cout << endl;
-    cout << "45 év feletti életkorok száma: " << db_45_felett << endl;
+    cout &lt;&lt; endl;
+    cout &lt;&lt; "45 év feletti életkorok száma: " &lt;&lt; db_45_felett &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1195,23 +1308,23 @@ int main() {
     const int MAX_MERET = 100;
     char karakterek[MAX_MERET];
 
-    cout << "Adja meg a karaktersorozatot: ";
+    cout &lt;&lt; "Adja meg a karaktersorozatot: ";
     cin.getline(karakterek, MAX_MERET);
 
     int meret = strlen(karakterek);
 
     if (meret >= 3) {
-        cout << "Első karakter: " << karakterek[0] << endl;
-        cout << "Utolsó karakter: " << karakterek[meret - 1] << endl;
-        cout << "Középső karakter(ek): ";
+        cout &lt;&lt; "Első karakter: " &lt;&lt; karakterek[0] &lt;&lt; endl;
+        cout &lt;&lt; "Utolsó karakter: " &lt;&lt; karakterek[meret - 1] &lt;&lt; endl;
+        cout &lt;&lt; "Középső karakter(ek): ";
         if (meret % 2 == 0) {
-            cout << karakterek[meret / 2 - 1] << " " << karakterek[meret / 2];
+            cout &lt;&lt; karakterek[meret / 2 - 1] &lt;&lt; " " &lt;&lt; karakterek[meret / 2];
         } else {
-            cout << karakterek[meret / 2];
+            cout &lt;&lt; karakterek[meret / 2];
         }
-        cout << endl;
+        cout &lt;&lt; endl;
     } else {
-        cout << "A karaktersorozat túl rövid!" << endl;
+        cout &lt;&lt; "A karaktersorozat túl rövid!" &lt;&lt; endl;
     }
 
     system("pause");
@@ -1242,7 +1355,7 @@ int main() {
     const int meret = 100;
     char szoveg[meret];
 
-    cout << "Adjon meg egy sort: ";
+    cout &lt;&lt; "Adjon meg egy sort: ";
     cin.getline(szoveg, meret);
 
     int kisbetuDb = 0;
@@ -1257,7 +1370,7 @@ int main() {
         }*/
     }
 
-    cout << "A megadott szövegben " << kisbetuDb << " kisbetű található." << endl;
+    cout &lt;&lt; "A megadott szövegben " &lt;&lt; kisbetuDb &lt;&lt; " kisbetű található." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1285,7 +1398,7 @@ int main() {
     const int meret = 100;
     char szoveg[meret];
 
-    cout << "Adjon meg egy sort: ";
+    cout &lt;&lt; "Adjon meg egy sort: ";
     cin.getline(szoveg, meret);
 
     bool numerikus = true;
@@ -1303,9 +1416,9 @@ int main() {
     }
 
     if (numerikus) {
-        cout << "A megadott szoveg numerikus." << endl;
+        cout &lt;&lt; "A megadott szoveg numerikus." &lt;&lt; endl;
     } else {
-        cout << "A megadott szoveg nem numerikus." << endl;
+        cout &lt;&lt; "A megadott szoveg nem numerikus." &lt;&lt; endl;
     }
 
     system("pause");
@@ -1335,17 +1448,17 @@ int main() {
     char szoveg1[meret];
     char szoveg2[meret];
 
-    cout << "Adjon meg az elso sort: ";
+    cout &lt;&lt; "Adjon meg az elso sort: ";
     cin.getline(szoveg1, meret);
 
-    cout << "Adjon meg a masodik sort: ";
+    cout &lt;&lt; "Adjon meg a masodik sort: ";
     cin.getline(szoveg2, meret);
 
     // strcmp függvény használata
     /*if (strcmp(szoveg1, szoveg2) == 0) {
-        cout << "A ket szoveg megegyezik." << endl;
+        cout &lt;&lt; "A ket szoveg megegyezik." &lt;&lt; endl;
     } else {
-        cout << "A ket szoveg kulonbozik." << endl;
+        cout &lt;&lt; "A ket szoveg kulonbozik." &lt;&lt; endl;
     }*/
 
     // függvény nélkül
@@ -1358,9 +1471,9 @@ int main() {
     }
 
     if (szoveg1[i] == '\0' && szoveg2[i] == '\0') {
-        cout << "A ket szoveg megegyezik." << endl;
+        cout &lt;&lt; "A ket szoveg megegyezik." &lt;&lt; endl;
     } else {
-        cout << "A ket szoveg kulonbozik." << endl;
+        cout &lt;&lt; "A ket szoveg kulonbozik." &lt;&lt; endl;
     }
 
     system("pause");
@@ -1386,7 +1499,7 @@ using namespace std;
 int main() {
     SetConsoleOutputCP(65001);
 
-    cout << "Adjon meg egy szöveget: ";
+    cout &lt;&lt; "Adjon meg egy szöveget: ";
     string szoveg;
     getline(cin, szoveg);
     //int n = szoveg.size();
@@ -1410,9 +1523,9 @@ int main() {
     }
 
     if (palindrom) {
-        cout << "A szöveg palindrom" << endl;
+        cout &lt;&lt; "A szöveg palindrom" &lt;&lt; endl;
     } else {
-        cout << "A szöveg nem palindrom" << endl;
+        cout &lt;&lt; "A szöveg nem palindrom" &lt;&lt; endl;
     }
 
     system("pause");
@@ -1444,13 +1557,13 @@ int main() {
 
     int karakterDb = 0;
 
-    cout << "Adjon meg szovegeket (Ctrl+Z vagy Ctrl+D az EOF-hez):" << endl;
+    cout &lt;&lt; "Adjon meg szovegeket (Ctrl+Z vagy Ctrl+D az EOF-hez):" &lt;&lt; endl;
 
     while (cin.getline(szovegek, meret)) {
         karakterDb += strlen(szovegek);
     }
 
-    cout << "A beolvasott szovegek osszesen " << karakterDb << " karaktert tartalmaznak." << endl;
+    cout &lt;&lt; "A beolvasott szovegek osszesen " &lt;&lt; karakterDb &lt;&lt; " karaktert tartalmaznak." &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1479,7 +1592,7 @@ int main() {
     while (getline(cin, sor)) {
         db++;
     }
-    cout << "Sorok száma: " << db << endl; // EOF jelzés: CTRL+Z és ENTER
+    cout &lt;&lt; "Sorok száma: " &lt;&lt; db &lt;&lt; endl; // EOF jelzés: CTRL+Z és ENTER
 
     system("pause");
     return 0;
@@ -1508,7 +1621,7 @@ int main() {
     char array[100][100];
 
     while (true) {
-        cout << "Adj meg egy sort: ";
+        cout &lt;&lt; "Adj meg egy sort: ";
         cin.getline(array[rows], 100);
 
         if (array[rows][0] == '\0') {
@@ -1518,12 +1631,12 @@ int main() {
         rows++;
     }
 
-    cout << "A kétdimenziós szövegtömb: " << endl;
+    cout &lt;&lt; "A kétdimenziós szövegtömb: " &lt;&lt; endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < strlen(array[i]); j++) {
-            cout << array[i][j];
+            cout &lt;&lt; array[i][j];
         }
-        cout << endl;
+        cout &lt;&lt; endl;
     }
 
     system("pause");
@@ -1558,12 +1671,12 @@ int main() {
     // Adatok feltöltése
     int i = 0;
     while (i < MAXN) {
-        cout << "Adja meg a(z) " << i + 1 << ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
+        cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
         if (!cin.getline(nevek[i], 100) || nevek[i][0] == '#') {
             break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
         }
-        cout << "Adja meg a(z) " << i + 1 << ". telefonszámot: ";
-        cin >> telefonok[i];
+        cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". telefonszámot: ";
+        cin &gt;&gt; telefonok[i];
         cin.ignore(); // Buffer ürítése az új sor karakter miatt
         i++;
     }
@@ -1572,21 +1685,21 @@ int main() {
 
     // Telefonszám bekérése
     int bekertTelefon;
-    cout << "Adjon meg egy telefonszámot: ";
-    cin >> bekertTelefon;
+    cout &lt;&lt; "Adjon meg egy telefonszámot: ";
+    cin &gt;&gt; bekertTelefon;
 
     // Név keresése és kiírása
     bool talalt = false;
     for (int j = 0; j < i; j++) {
         if (telefonok[j] == bekertTelefon) {
-            cout << "A(z) " << bekertTelefon << " telefonszámhoz tartozó név: " << nevek[j] << endl;
+            cout &lt;&lt; "A(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámhoz tartozó név: " &lt;&lt; nevek[j] &lt;&lt; endl;
             talalt = true;
             break;
         }
     }
 
     if (!talalt) {
-        cout << "Nem található név a(z) " << bekertTelefon << " telefonszámmal." << endl;
+        cout &lt;&lt; "Nem található név a(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámmal." &lt;&lt; endl;
     }
 
     system("pause");
@@ -1645,7 +1758,7 @@ int main() {
     };
 
     Person tallest = getTallestPerson(people, sizeof(people) / sizeof(Person));
-    cout << "A legmagasabb ember neve: " << tallest.name << endl;
+    cout &lt;&lt; "A legmagasabb ember neve: " &lt;&lt; tallest.name &lt;&lt; endl;
     system("pause");
     return 0;
 }
@@ -1706,7 +1819,7 @@ int main() {
 
     int size = sizeof(people) / sizeof(people[0]);
     float tallestHeightOfOldest = getTallestHeightOfOldest(people, size);
-    cout << "A legidősebb ember magassága: " << tallestHeightOfOldest << " m" << endl;
+    cout &lt;&lt; "A legidősebb ember magassága: " &lt;&lt; tallestHeightOfOldest &lt;&lt; " m" &lt;&lt; endl;
     system("pause");
     return 0;
 }
@@ -1764,7 +1877,7 @@ int main() {
 
     int size = sizeof(employees) / sizeof(employees[0]);
     string highestEarnerName = getHighestEarnerName(employees, size);
-    cout << "A legtöbbet kereső ember neve: " << highestEarnerName << endl;
+    cout &lt;&lt; "A legtöbbet kereső ember neve: " &lt;&lt; highestEarnerName &lt;&lt; endl;
     system("pause");
     return 0;
 }
@@ -1827,8 +1940,8 @@ int main() {
     float averageHeight = getAverageHeight(people, size);
     float averageAge = getAverageAge(people, size);
 
-    cout << "Az átlagmagasság: " << averageHeight << " m" << endl;
-    cout << "Az átlagéletkor: " << averageAge << " év" << endl;
+    cout &lt;&lt; "Az átlagmagasság: " &lt;&lt; averageHeight &lt;&lt; " m" &lt;&lt; endl;
+    cout &lt;&lt; "Az átlagéletkor: " &lt;&lt; averageAge &lt;&lt; " év" &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1887,7 +2000,7 @@ int main() {
 
     int size = sizeof(people) / sizeof(people[0]);
     float salaryOfOldest = getSalaryOfOldest(people, size);
-    cout << "A legidősebb ember fizetése: " << salaryOfOldest << " HUF" << endl;
+    cout &lt;&lt; "A legidősebb ember fizetése: " &lt;&lt; salaryOfOldest &lt;&lt; " HUF" &lt;&lt; endl;
     system("pause");
     return 0;
 }
@@ -1922,7 +2035,7 @@ int main() {
     // Adatok feltöltése
     int i = 0;
     while (i < MAXN) {
-        cout << "Adja meg a(z) " << i + 1 << ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
+        cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
         if (!cin.getline(nevek[i], 100)) {
             break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
         }
@@ -1931,8 +2044,8 @@ int main() {
             break;
         }
 
-        cout << "Adja meg a(z) " << i + 1 << ". telefonszámot: ";
-        cin >> telefonok[i];
+        cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". telefonszámot: ";
+        cin &gt;&gt; telefonok[i];
 
         cin.ignore(); // Buffer ürítése az új sor karakter miatt
 
@@ -1943,21 +2056,21 @@ int main() {
 
     // Telefonszám bekérése
     int bekertTelefon;
-    cout << "Adjon meg egy telefonszámot: ";
-    cin >> bekertTelefon;
+    cout &lt;&lt; "Adjon meg egy telefonszámot: ";
+    cin &gt;&gt; bekertTelefon;
 
     // Név keresése és kiírása
     bool talalt = false;
     for (int j = 0; j < i; j++) {
         if (telefonok[j] == bekertTelefon) {
-            cout << "A(z) " << bekertTelefon << " telefonszámhoz tartozó név: " << nevek[j] << endl;
+            cout &lt;&lt; "A(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámhoz tartozó név: " &lt;&lt; nevek[j] &lt;&lt; endl;
             talalt = true;
             break;
         }
     }
 
     if (!talalt) {
-        cout << "Nem található név a(z) " << bekertTelefon << " telefonszámmal." << endl;
+        cout &lt;&lt; "Nem található név a(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámmal." &lt;&lt; endl;
     }
 
     system("pause");
