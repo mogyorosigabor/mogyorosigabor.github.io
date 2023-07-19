@@ -963,6 +963,52 @@ int main() {
                 </div>
             </section>
             <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-4">5.4. feladat</h3>
+                A program egy tetszőleges méretű (lebegőpontos) tömböt töltsön fel egész számokkal, amelyek
+                egy kocka oldalhosszúságát jelentik. Számítsa ki – a tömbben tárolt oldalhosszak alapján – a kockák
+                térfogatát és felszínét. Ellenőrizze, hogy csak pozitív számokat adtunk-e meg.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    float tomb[meret];
+
+    cout &lt;&lt; "Adja meg a kockák oldalhosszait:" &lt;&lt; endl;
+    for (int i = 0; i &lt; meret; i++) {
+        cin &gt;&gt; tomb[i];
+        if (tomb[i] &lt;= 0) {
+            cout &lt;&lt; "Hibás érték! Adj meg egy pozitív számot." &lt;&lt; endl;
+            cin &gt;&gt; tomb[i];
+        }
+    }
+
+    float terfogat, felszin;
+    for (int i = 0; i &lt; meret; i++) {
+        terfogat = pow(tomb[i], 3);
+        felszin = 6 * pow(tomb[i], 2);
+        cout &lt;&lt; "A(z) " &lt;&lt; i + 1 &lt;&lt; ". kocka térfogata: " &lt;&lt; terfogat &lt;&lt; ", felszíne: " &lt;&lt; felszin &lt;&lt; endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
                 <h3 class="text-secondary fw-bold" id="tombok-mutatok-5">5.5. feladat</h3>
                 A program egy tetszőleges méretű tömböt töltsön fel hónapok sorszámaival. A tömbben tárolt
                 adatok alapján írja ki a hónapok melyik évszakban találhatók („tavasz”, „nyár”, „ősz”, „tél”).
@@ -1259,12 +1305,12 @@ int main() {
 
     float tomb[meret];
 
-    cout &lt;&lt; "Adja meg a hőmérsékleteket:" << endl;
+    cout &lt;&lt; "Adja meg a hőmérsékleteket:" &lt;&lt; endl;
     for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
     }
 
-    cout &lt;&lt; "A halmazállapotok:" << endl;
+    cout &lt;&lt; "A halmazállapotok:" &lt;&lt; endl;
     for (int i = 0; i &lt; meret; i++) {
         cout &lt;&lt; tomb[i] &lt;&lt; " fok - ";
         if (tomb[i] &lt;= 0) {
@@ -1336,6 +1382,89 @@ int main() {
                 </div>
             </section>
             <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-12">5.12. feladat</h3>
+                A program egy tetszőleges méretű (lebegőpontos) tömböt töltsön fel számokkal, ezek egy-egy
+                kör sugarát jelentik. A tömbben tárolt adatok alapján számolja ki a körök területét és kerületét.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    float sugarak[meret];
+
+    cout &lt;&lt; "Adja meg a kör sugarait:" &lt;&lt; endl;
+    for (int i = 0; i &lt; meret; i++) {
+        cin &gt;&gt; sugarak[i];
+    }
+
+    cout &lt;&lt; "A körök területei és kerületei:" &lt;&lt; endl;
+    for (int i = 0; i &lt; meret; i++) {
+        float terulet = M_PI * pow(sugarak[i], 2);
+        float kerulet = 2 * M_PI * sugarak[i];
+        cout &lt;&lt; "Sugár: " &lt;&lt; sugarak[i] &lt;&lt; ", Terület: " &lt;&lt; terulet &lt;&lt; ", Kerület: " &lt;&lt; kerulet &lt;&lt; endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-13">5.13. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel születési évekkel, majd olvassa be az
+                aktuális évszámot. Határozza meg – a tömb adatai alapján – az átlagéletkort.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    int eletkorok[meret];
+    int sum = 0;
+
+    cout &lt;&lt; "Adja meg a születési éveket:" &lt;&lt; endl;
+    for (int i = 0; i &lt; meret; i++) {
+        cin &gt;&gt; eletkorok[i];
+        sum += eletkorok[i];
+    }
+
+    int aktualisEv;
+    cout &lt;&lt; "Adja meg az aktuális évet: ";
+    cin &gt;&gt; aktualisEv;
+
+    double atlagEletkor = static_cast&lt;double>(sum) / meret;
+    cout &lt;&lt; "Az átlagéletkor a megadott adatok alapján: " &lt;&lt; atlagEletkor &lt;&lt; " év" &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
                 <h3 class="text-secondary fw-bold" id="tombok-mutatok-14">5.14. feladat</h3>
                 Olvasson be egy tömbbe (legalább 3 karakterből álló) karaktersorozatot. Határozza meg és írja
                 ki az első, utolsó és a középső elemet (páros számú karakterek esetén két középső elem van).
@@ -1372,6 +1501,110 @@ int main() {
     } else {
         cout &lt;&lt; "A karaktersorozat túl rövid!" &lt;&lt; endl;
     }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-15">5.15. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel számokkal, majd kérjen be egy tetszőleges
+                értéket. Keresse meg, hogy az utólag megadott érték hol (milyen indexen) található a tömbben. Ha
+                nincs, azt is jelezze.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb meretet: ";
+    cin &gt;&gt; meret;
+
+    int tomb[meret];
+
+    cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
+    for (int i = 0; i < meret; i++) {
+        cin &gt;&gt; tomb[i];
+    }
+
+    int keresettErtek;
+    cout &lt;&lt; "Adja meg a keresett értéket: ";
+    cin &gt;&gt; keresettErtek;
+
+    bool talalt = false;
+    int talalatiIndex;
+
+    for (int i = 0; i &lt; meret; i++) {
+        if (tomb[i] == keresettErtek) {
+            talalt = true;
+            talalatiIndex = i;
+            break;
+        }
+    }
+
+    if (talalt) {
+        cout &lt;&lt; "A keresett érték megtalálható a tömbben, az indexe: " &lt;&lt; talalatiIndex &lt;&lt; " (" &lt;&lt; talalatiIndex + 1 &lt;&lt; ". hely)" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "A keresett érték nem található a tömbben." &lt;&lt; endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="tombok-mutatok-16">5.16. feladat</h3>
+                A program egy tetszőleges méretű tömböt töltsön fel számokkal. Keresse meg, a legkisebb és a
+                legnagyobb értéket a tömbben.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int meret;
+    cout &lt;&lt; "Adja meg a tömb méretét: ";
+    cin &gt;&gt; meret;
+
+    int tomb[meret];
+
+    cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
+    for (int i = 0; i &lt; meret; i++) {
+        cin &gt;&gt; tomb[i];
+    }
+
+    int legkisebb = tomb[0];
+    int legnagyobb = tomb[0];
+
+    for (int i = 1; i &lt; meret; i++) {
+        if (tomb[i] &lt; legkisebb) {
+            legkisebb = tomb[i];
+        }
+
+        if (tomb[i] &gt; legnagyobb) {
+            legnagyobb = tomb[i];
+        }
+    }
+
+    cout &lt;&lt; "A legkisebb érték: " &lt;&lt; legkisebb &lt;&lt; endl;
+    cout &lt;&lt; "A legnagyobb érték: " &lt;&lt; legnagyobb &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -1747,6 +1980,96 @@ int main() {
     if (!talalt) {
         cout &lt;&lt; "Nem található név a(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámmal." &lt;&lt; endl;
     }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
+                <h2 id="fuggvenyek" class="fw-bold">7. Függvények</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-1">7.1. feladat</h3>
+                Készítsen programot, amely függvény segítségével beolvas egy karaktersort (stringet). A
+                beolvasott karakterek közül megszámolja a kisbetű karaktereket. A karakterek számát
+                átadja a main-nek, amely kiírja azt.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+//int countLowercaseCharacters(const char* str) {
+int countLowercaseCharacters(char str[]) {
+    int count = 0, length = strlen(str);
+    for (int i = 0; i &lt; length; i++) {
+        if (islower(str[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int MAX_LENGTH = 100;
+    char str[MAX_LENGTH];
+
+    cout &lt;&lt; "Karaktersor beolvasása: ";
+    cin.getline(str, MAX_LENGTH);
+
+    int lowercaseCount = countLowercaseCharacters(str);
+    cout &lt;&lt; "Kisbetű karakterek száma: " &lt;&lt; lowercaseCount &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-2">7.2. feladat</h3>
+                Készítsen programot, amely függvény segítségével beolvas egy karaktersort (stringet). A
+                beolvasott karakterek közül megszámolja a szám karaktereket. A karakterek számát
+                átadja a main-nek, amely kiírja azt.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+int countDigits(const char* str) {
+    int count = 0, length = strlen(str);
+    for (int i = 0; i &lt; length; i++) {
+        if (isdigit(str[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    const int MAX_LENGTH = 100;
+    char str[MAX_LENGTH];
+
+    cout &lt;&lt; "Karaktersor beolvasása: ";
+    cin.getline(str, MAX_LENGTH);
+
+    int digitCount = countDigits(str);
+    cout &lt;&lt; "Szám karakterek száma: " &lt;&lt; digitCount &lt;&lt; endl;
 
     system("pause");
     return 0;

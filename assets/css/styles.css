@@ -290,7 +290,9 @@ footer ul li.list-inline-item {
 }
 
 [data-toc="tartalomjegyzek"] .nav-link.active, [data-toc="tartalomjegyzek"] .nav-link:hover,
-[data-toc="tartalomjegyzek"] ul li:has(li > .nav-link.active) > .nav-link {
+[data-toc="tartalomjegyzek"] ul li:has(li > .nav-link.active) > .nav-link,
+[data-toc="tartalomjegyzek"] ul li:has(.nav-link.active)::marker,
+[data-toc="tartalomjegyzek"] ul li:has(.nav-link:hover)::marker {
     color: var(--bs-danger);
     font-weight: bold;
 }
