@@ -435,7 +435,7 @@ int main() {
             "öt", "hat", "hét", "nyolc", "kilenc"
         };
 
-        if (c >= '0' && c <= '9') {
+        if (c &gt;= '0' && c &lt;= '9') {
             cout &lt;&lt; c &lt;&lt; " - " &lt;&lt; names[c - '0'] &lt;&lt; endl;
         } else if (c != '\n') {
             cout &lt;&lt; c &lt;&lt; " - Hibás karakter! Kérjük, adjon meg érvényes szám karaktert." &lt;&lt; endl;
@@ -472,7 +472,7 @@ int main() {
     int paratlanDb = 0;
 
     while ((karakter = getchar()) != EOF || karakter == '\n') {
-        if (karakter >= '0' && karakter <= '9') {
+        if (karakter &gt;= '0' && karakter &lt;= '9') {
             int szam = karakter - '0';
             if (szam % 2 == 0) {
                 cout &lt;&lt; "Páros" &lt;&lt; endl;
@@ -518,7 +518,7 @@ int main() {
     int szam;
 
     while ((karakter = getchar()) != EOF || karakter == '\n') {
-        if (karakter >= '0' && karakter <= '9') {
+        if (karakter &gt;= '0' && karakter &lt;= '9') {
             szam = karakter - '0';
             cout &lt;&lt; "Megadott karakter: " &lt;&lt; karakter &lt;&lt; " (" &lt;&lt; typeid(karakter).name() &lt;&lt; ")" &lt;&lt; ". Egész szám: " &lt;&lt; szam &lt;&lt; " (" &lt;&lt; typeid(szam).name() &lt;&lt; ")" &lt;&lt; endl;
         } else if (karakter != '\n') {
@@ -584,7 +584,7 @@ int main() {
     int kisbetuDb = 0;
 
     while ((karakter = getchar()) != EOF && karakter != '\n') {
-        if (karakter >= 'a' && karakter <= 'z') {
+        if (karakter &gt;= 'a' && karakter &lt;= 'z') {
             kisbetuDb++;
         }
     }
@@ -623,7 +623,7 @@ int main() {
         cout &lt;&lt; "A szám bináris alakja: ";
         bool elsoJelentosHelyiertek = false;  // Segédváltozó a vezető nullák kiszűréséhez
 
-        for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+        for (int i = sizeof(int) * 8 - 1; i &gt;= 0; i--) {
             int bit = (szam &gt;&gt; i) & 1;
 
             if (bit == 1) {
@@ -673,7 +673,7 @@ int main() {
 
     double discriminant = pow(b, 2) - 4 * a * c;
 
-    if (discriminant > 0) {
+    if (discriminant &gt; 0) {
         double x1 = (-b + sqrt(discriminant)) / (2 * a);
         double x2 = (-b - sqrt(discriminant)) / (2 * a);
         cout &lt;&lt; "Az egyenlet valós gyökei: x1 = " &lt;&lt; x1 &lt;&lt; ", x2 = " &lt;&lt; x2 &lt;&lt; endl;
@@ -712,7 +712,7 @@ int main() {
 
     cout &lt;&lt; "A számjegyek fordított sorrendben: ";
 
-    while (szam > 0) {
+    while (szam &gt; 0) {
         int szamjegy = szam % 10;
         cout &lt;&lt; szamjegy &lt;&lt; " ";
         szam /= 10;
@@ -796,10 +796,10 @@ int main() {
 
     bool primszam = true;
 
-    if (szam < 2) {
+    if (szam &lt; 2) {
         primszam = false;
     } else {
-        for (int i = 2; i * i <= szam; i++) {
+        for (int i = 2; i * i &lt;= szam; i++) {
             if (szam % i == 0) {
                 primszam = false;
                 break;
@@ -845,14 +845,14 @@ int main() {
     float tomb[meret];
 
     cout &lt;&lt; "Adja meg a hőmérsékleteket:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
     }
 
     int db = 0;
 
-    for (int i = 0; i < meret; i++) {
-        if (tomb[i] >= 0 && tomb[i] <= 100) {
+    for (int i = 0; i &lt; meret; i++) {
+        if (tomb[i] &gt;= 0 && tomb[i] &lt;= 100) {
             db++;
         }
     }
@@ -888,14 +888,14 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg az életkorokat:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
     }
 
     int db = 0;
 
-    for (int i = 0; i < meret; i++) {
-        if (tomb[i] >= 30 && tomb[i] <= 59) {
+    for (int i = 0; i &lt; meret; i++) {
+        if (tomb[i] &gt;= 30 && tomb[i] &lt;= 59) {
             db++;
         }
     }
@@ -932,13 +932,13 @@ int main() {
 
     //cout &lt;&lt; "Adja meg az osztályzatokat:" &lt;&lt; endl;
     cout &lt;&lt; "Adja meg az osztályzatokat (1 és 5 között):" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         //cin &gt;&gt; tomb[i];
 
         int osztalyzat;
         cin &gt;&gt; osztalyzat;
 
-        while (osztalyzat < 1 || osztalyzat > 5) {
+        while (osztalyzat &lt; 1 || osztalyzat &gt; 5) {
             cout &lt;&lt; "Hibás osztályzat! Adjon meg újra (1 és 5 között):" &lt;&lt; endl;
             cin &gt;&gt; osztalyzat;
         }
@@ -947,7 +947,7 @@ int main() {
     }
 
     int osszeg = 0;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         osszeg += tomb[i];
     }
 
@@ -985,17 +985,17 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg a hónapok sorszámait (1 és 12 között):" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
 
-        while (tomb[i] < 1 || tomb[i] > 12) {
+        while (tomb[i] &lt; 1 || tomb[i] &gt; 12) {
             cout &lt;&lt; "Hibás sorszám! Adjon meg újat (1 és 12 között):" &lt;&lt; endl;
             cin &gt;&gt; tomb[i];
         }
     }
 
     cout &lt;&lt; "A hónapok évszakai:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         switch (tomb[i]) {
             case 3:
             case 4:
@@ -1047,7 +1047,7 @@ int main() {
     cout &lt;&lt; "Adja meg a tömb méretét (1 és 7 közötti érték): ";
     cin &gt;&gt; meret;
 
-    while (meret < 1 || meret > 7) {
+    while (meret &lt; 1 || meret &gt; 7) {
         cout &lt;&lt; "Hibás méret! Adjon meg újat (1 és 7 közötti érték): ";
         cin &gt;&gt; meret;
     }
@@ -1056,17 +1056,17 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg a napok sorszámait (1 és 7 között):" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
 
-        while (tomb[i] < 1 || tomb[i] > 7) {
+        while (tomb[i] &lt; 1 || tomb[i] &gt; 7) {
             cout &lt;&lt; "Hibás sorszám! Adjon meg újat (1 és 7 között): ";
             cin &gt;&gt; tomb[i];
         }
     }
 
     cout &lt;&lt; "A napok nevei:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cout &lt;&lt; napok[tomb[i] - 1] &lt;&lt; endl;
     }
 
@@ -1099,14 +1099,14 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
     }
 
     int parosSzamok = 0;
     int paratlanSzamok = 0;
 
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         if (tomb[i] % 2 == 0) {
             parosSzamok++;
         } else {
@@ -1145,7 +1145,7 @@ int main() {
     cout &lt;&lt; "Adja meg a tömb méretét: ";
     cin &gt;&gt; meret;
 
-    if (meret <= 0) {
+    if (meret &lt;= 0) {
         cout &lt;&lt; "Hibás méret! A tömb mérete nem lehet negatív." &lt;&lt; endl;
         system("pause");
         return 1;
@@ -1154,21 +1154,21 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg az életkorokat:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
-        while (tomb[i] < 1 || tomb[i] > 100) {
+        while (tomb[i] &lt; 1 || tomb[i] &gt; 100) {
             cout &lt;&lt; "Hibás életkor! Az életkorok 1 és 100 között lehetnek." &lt;&lt; endl;
             cin &gt;&gt; tomb[i];
         }
     }
 
     cout &lt;&lt; "Életkoronként az alábbi szöveg jelenik meg:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         if (tomb[i] % 10 == 0) {
                 cout &lt;&lt; "Gratulálunk" &lt;&lt; endl;
-            } else if (tomb[i] >= 1 && tomb[i] <= 29) {
+            } else if (tomb[i] &gt;= 1 && tomb[i] &lt;= 29) {
                 cout &lt;&lt; "Fiatal" &lt;&lt; endl;
-            } else if (tomb[i] >= 30 && tomb[i] <= 59) {
+            } else if (tomb[i] &gt;= 30 && tomb[i] &lt;= 59) {
                 cout &lt;&lt; "Középkorú" &lt;&lt; endl;
             } else {
                 cout &lt;&lt; "Idős" &lt;&lt; endl;
@@ -1205,7 +1205,7 @@ int main() {
     int tomb[meret];
 
     cout &lt;&lt; "Adja meg a számokat:" &lt;&lt; endl;
-    for (int i = 0; i < meret; i++) {
+    for (int i = 0; i &lt; meret; i++) {
         cin &gt;&gt; tomb[i];
     }
 
@@ -1216,10 +1216,10 @@ int main() {
     cin &gt;&gt; b;
 
     int belul = 0, folotte = 0, alatta = 0;
-    for (int i = 0; i < meret; i++) {
-        if (tomb[i] >= a && tomb[i] <= b) {
+    for (int i = 0; i &lt; meret; i++) {
+        if (tomb[i] &gt;= a && tomb[i] &lt;= b) {
             belul++;
-        } else if (tomb[i] > b) {
+        } else if (tomb[i] &gt; b) {
             folotte++;
         } else {
             alatta++;
@@ -1270,10 +1270,10 @@ int main() {
 
     cout &lt;&lt; "Életkorok:" &lt;&lt; endl;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i &lt; n; i++) {
         int eletkor = aktualis_ev - szuletesi_ev[i];
         cout &lt;&lt; eletkor &lt;&lt; " ";
-        if (eletkor > 45) {
+        if (eletkor &gt; 45) {
             db_45_felett++;
         }
     }
@@ -1313,7 +1313,7 @@ int main() {
 
     int meret = strlen(karakterek);
 
-    if (meret >= 3) {
+    if (meret &gt;= 3) {
         cout &lt;&lt; "Első karakter: " &lt;&lt; karakterek[0] &lt;&lt; endl;
         cout &lt;&lt; "Utolsó karakter: " &lt;&lt; karakterek[meret - 1] &lt;&lt; endl;
         cout &lt;&lt; "Középső karakter(ek): ";
@@ -1359,8 +1359,8 @@ int main() {
     cin.getline(szoveg, meret);
 
     int kisbetuDb = 0;
-    for (int i = 0; i < strlen(szoveg); i++) {
-        if (szoveg[i] >= 'a' && szoveg[i] <= 'z') {
+    for (int i = 0; i &lt; strlen(szoveg); i++) {
+        if (szoveg[i] &gt;= 'a' && szoveg[i] &lt;= 'z') {
             kisbetuDb++;
         }
 
@@ -1402,8 +1402,8 @@ int main() {
     cin.getline(szoveg, meret);
 
     bool numerikus = true;
-    for (int i = 0; i < strlen(szoveg); i++) {
-        if (szoveg[i] < '0' || szoveg[i] > '9') {
+    for (int i = 0; i &lt; strlen(szoveg); i++) {
+        if (szoveg[i] &lt; '0' || szoveg[i] &gt; '9') {
             numerikus = false;
             break;
         }
@@ -1514,7 +1514,7 @@ int main() {
     int n = uj_szoveg.size();
     bool palindrom = true;
 
-    for (int i = 0; i < n / 2; i++) {
+    for (int i = 0; i &lt; n / 2; i++) {
         //if (szoveg[i] != szoveg[n - i - 1]) {
         if (uj_szoveg[i] != uj_szoveg[n - i - 1]) {
             palindrom = false;
@@ -1632,8 +1632,8 @@ int main() {
     }
 
     cout &lt;&lt; "A kétdimenziós szövegtömb: " &lt;&lt; endl;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < strlen(array[i]); j++) {
+    for (int i = 0; i &lt; rows; i++) {
+        for (int j = 0; j &lt; strlen(array[i]); j++) {
             cout &lt;&lt; array[i][j];
         }
         cout &lt;&lt; endl;
@@ -1670,7 +1670,7 @@ int main() {
 
     // Adatok feltöltése
     int i = 0;
-    while (i < MAXN) {
+    while (i &lt; MAXN) {
         cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
         if (!cin.getline(nevek[i], 100) || nevek[i][0] == '#') {
             break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
@@ -1690,7 +1690,7 @@ int main() {
 
     // Név keresése és kiírása
     bool talalt = false;
-    for (int j = 0; j < i; j++) {
+    for (int j = 0; j &lt; i; j++) {
         if (telefonok[j] == bekertTelefon) {
             cout &lt;&lt; "A(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámhoz tartozó név: " &lt;&lt; nevek[j] &lt;&lt; endl;
             talalt = true;
@@ -1740,8 +1740,8 @@ struct Person {
 
 Person getTallestPerson(Person *people, int size) {
     Person tallestPerson = people[0];
-    for (int i = 1; i < size; i++) {
-        if (people[i].height > tallestPerson.height) {
+    for (int i = 1; i &lt; size; i++) {
+        if (people[i].height &gt; tallestPerson.height) {
             tallestPerson = people[i];
         }
     }
@@ -1797,8 +1797,8 @@ float getTallestHeightOfOldest(Person* people, int size) {
     // float tallestHeightOfOldest = people[0].height;
     int tallestHeightOfOldestIndex = 0;
 
-    for (int i = 1; i < size; i++) {
-        if (people[i].age > oldestAge) {
+    for (int i = 1; i &lt; size; i++) {
+        if (people[i].age &gt; oldestAge) {
             oldestAge = people[i].age;
             // tallestHeightOfOldest = people[i].height;
             tallestHeightOfOldestIndex = i;
@@ -1857,8 +1857,8 @@ string getHighestEarnerName(Employee* employees, int size) {
     float highestSalary = employees[0].salary;
     int highestEarnerIndex = 0;
 
-    for (int i = 1; i < size; i++) {
-        if (employees[i].salary > highestSalary) {
+    for (int i = 1; i &lt; size; i++) {
+        if (employees[i].salary &gt; highestSalary) {
             highestSalary = employees[i].salary;
             highestEarnerIndex = i;
         }
@@ -1913,7 +1913,7 @@ struct Person {
 
 float getAverageHeight(Person* people, int size) {
     float totalHeight = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i &lt; size; i++) {
         totalHeight += people[i].height;
     }
     return static_cast&lt;float>(totalHeight) / size;
@@ -1921,7 +1921,7 @@ float getAverageHeight(Person* people, int size) {
 
 float getAverageAge(Person* people, int size) {
     int totalAge = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i &lt; size; i++) {
         totalAge += people[i].age;
     }
     return static_cast&lt;float>(totalAge) / size;
@@ -1980,8 +1980,8 @@ float getSalaryOfOldest(Person* people, int size) {
     int oldestAge = people[0].age;
     float salaryOfOldest = people[0].salary;
 
-    for (int i = 1; i < size; i++) {
-        if (people[i].age > oldestAge) {
+    for (int i = 1; i &lt; size; i++) {
+        if (people[i].age &gt; oldestAge) {
             oldestAge = people[i].age;
             salaryOfOldest = people[i].salary;
         }
@@ -2034,7 +2034,7 @@ int main() {
 
     // Adatok feltöltése
     int i = 0;
-    while (i < MAXN) {
+    while (i &lt; MAXN) {
         cout &lt;&lt; "Adja meg a(z) " &lt;&lt; i + 1 &lt;&lt; ". nevet (vagy adja meg a # karaktert a befejezéshez): ";
         if (!cin.getline(nevek[i], 100)) {
             break; // Adatbevitel leállítása az EOF jelzésre (Ctrl+Z vagy Ctrl+D)
@@ -2061,7 +2061,7 @@ int main() {
 
     // Név keresése és kiírása
     bool talalt = false;
-    for (int j = 0; j < i; j++) {
+    for (int j = 0; j &lt; i; j++) {
         if (telefonok[j] == bekertTelefon) {
             cout &lt;&lt; "A(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámhoz tartozó név: " &lt;&lt; nevek[j] &lt;&lt; endl;
             talalt = true;
