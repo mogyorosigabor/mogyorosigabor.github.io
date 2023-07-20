@@ -2078,6 +2078,173 @@ int main() {
                     </pre>
                 </div>
             </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-3">7.3. feladat</h3>
+                Készítsen programot, amely függvény segítségével beolvas egy szövegsort, majd
+                meghatározza a szavak számát. A szavak számát átadja a main-nek, amely kiírja azt.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;sstream>
+#include &lt;windows.h>
+
+using namespace std;
+
+wstring removeAccents(const wstring& str) {
+    const wstring accents = L"áéíóöőúüűÁÉÍÓÖŐÚÜŰ";
+    const wstring noAccents = L"aeiooouuuAEIOOOUUU";
+
+    // Egyik megoldás
+    /*wstring result;
+    for (wchar_t c : str) {
+        wstring::size_type found = accents.find(c);
+        if (found != wstring::npos) {
+            result += noAccents[found];
+        } else {
+            result += c;
+        }
+    }*/
+
+    // Másik megoldás
+    wstring result = str;
+    for (size_t i = 0; i &lt; result.length(); i++) {
+        wstring::size_type found = accents.find(result[i]);
+        if (found != wstring::npos) {
+            result[i] = noAccents[found];
+        }
+    }
+
+    return result;
+}
+
+int countWords(const wstring& str) {
+    wstring text = removeAccents(str);
+    wistringstream iss(text);
+    int count = 0;
+    wstring word;
+
+    while (iss &gt;&gt; word) {
+        count++;
+    }
+
+    return count;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    wstring line;
+    cout &lt;&lt; "Kérjünk be egy szövegsort: ";
+    getline(wcin, line);
+    cout &lt;&lt; "Szavak száma: ";
+    wcout &lt;&lt; countWords(line) &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-4">7.4. feladat</h3>
+                Készítsen programot, amely függvény segítségével kiszámítja egy hasáb térfogatát. A
+                hasáb adatait a main kéri be, azokat paraméterként átadja a függvénynek. A függvény
+                kiszámítja a térfogatot, majd visszaadja azt. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cmath>
+#include &lt;windows.h>
+
+using namespace std;
+
+// Függvény a hatszög alapú hasáb térfogatának kiszámítására
+double calculateVolume(double sideLength, double height) {
+    return (3 * sqrt(3) * pow(sideLength, 2) * height) / 2; // V = 6*a^2*sqrt(3)*h/4
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+    double sideLength, height;
+
+    cout &lt;&lt; "Kérem adja meg a hatszög alapú hasáb oldalhosszát: ";
+    cin &gt;&gt; sideLength;
+
+    cout &lt;&lt; "Kérem adja meg a hasáb magasságát: ";
+    cin &gt;&gt; height;
+
+    double volume = calculateVolume(sideLength, height);
+    cout &lt;&lt; "A hatszög alapú hasáb térfogata: " &lt;&lt; volume &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-5">7.5. feladat</h3>
+                Készítsen programot, amely függvény segítségével meghatározza, hogy a megadott
+                oldalhosszakból szerkeszthető-e háromszög (bármely két oldal összege nagyobb a
+                harmadiknál). Az oldalak hosszát a main kéri be, azokat paraméterként átadja a
+                függvénynek. A függvény meghatározza a szerkeszthetőséget és ennek megfelelően egy
+                logikai értékkel tér vissza. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+// Függvény a háromszög szerkeszthetőségének ellenőrzésére
+bool isTriangle(double a, double b, double c) {
+    // A háromszög szerkeszthetőségének feltétele: bármely két oldal összege nagyobb a harmadiknál
+    return (a + b &gt; c) && (a + c &gt; b) && (b + c &gt; a);
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double a, b, c;
+
+    double a, b, c;
+
+    /*cout &lt;&lt; "Kérem adja meg az első oldal hosszát: ";
+    cin &gt;&gt; a;
+
+    cout &lt;&lt; "Kérem adja meg a második oldal hosszát: ";
+    cin &gt;&gt; b;
+
+    cout &lt;&lt; "Kérem adja meg a harmadik oldal hosszát: ";
+    cin &gt;&gt; c;*/
+
+    cout &lt;&lt;&lt;&lt; "Kérem adja meg az a, b és c értékeket szóközökkel elválasztva: ";
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+
+    cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+    cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
+    cout &lt;&lt; "c = " &lt;&lt; c &lt;&lt; endl;
+
+    bool isTrianglePossible = isTriangle(a, b, c);
+    if (isTrianglePossible) {
+        cout &lt;&lt; "A megadott oldalhosszakból szerkeszthető háromszög." &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "A megadott oldalhosszakból nem lehet háromszöget szerkeszteni." &lt;&lt; endl;
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
             <section class="forJS mt-5">
                 <h2 id="osszetett-adattipusok" class="fw-bold">8. Összetett adattípusok</h2>
             </section>
