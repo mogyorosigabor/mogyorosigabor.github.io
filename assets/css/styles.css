@@ -243,7 +243,8 @@ main section#publikaciok .section-heading {
     counter-reset: item;
     list-style-type: none !important;
     padding-left: 35px;
-    position: relative
+    position: relative;
+    margin-bottom: 0
 }
 
 .accordion .accordion-body ol.cikkek li::before {
