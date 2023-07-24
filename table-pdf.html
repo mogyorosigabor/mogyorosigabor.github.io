@@ -1,77 +1,123 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Táblázat létrehozása</title>
-</head>
-<body>
-  <form id="inputForm">
-    <label for="name">Név:</label>
-    <input type="text" id="name" required>
-    <label for="age">Kor:</label>
-    <input type="number" id="age" required>
-    <button type="button" onclick="addRow()">Hozzáadás</button>
-  </form>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="text-center">Export from HTML</h3>
+      <p>Checkout <a href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-Autotable</a> for generating PDF tables with more customizable options.</p>
+      <br><br>
+      
+      <div id="content1">
+        <p>Table 1</p>
+        <table id="demo" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Serial Number</th>
+              <th>Name</th>
+              <th>Percentile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>James</td>
+              <td>8.9</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Harry</td>
+              <td>7.6</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Emma</td>
+              <td>7.0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="btn" id="export" onclick="exportPDF('content1')">Save</button>
+        </div>
+      <br><br>
+      
+      <div id="content2">
+        <p>Table 2</p>
+      
+        <table id="demo" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Serial Number</th>
+              <th>Name</th>
+              <th>Percentile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>James</td>
+              <td>8.9</td>
+            </tr>
+            <tr>
+              <td>2dsds</td>
+              <td>Harry</td>
+              <td>7.6</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Emma</td>
+              <td>7.0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="btn" id="export" onclick="exportPDF('content2')">Save</button>
+        </div>
 
-  <table id="dataTable">
-    <tr>
-      <th>Név</th>
-      <th>Kor</th>
-    </tr>
-  </table>
+        <br>
+        <footer class="footer">Demo from https://jsfiddle.net/Purushoth/bor1nggb</footer>
 
-  <script>
-    function addRow() {
-      const nameInput = document.getElementById("name");
-      const ageInput = document.getElementById("age");
-      const name = nameInput.value;
-      const age = ageInput.value;
+      </div>
 
-      if (name && age) {
-        const table = document.getElementById("dataTable");
-        const newRow = table.insertRow(-1);
-        const nameCell = newRow.insertCell(0);
-        const ageCell = newRow.insertCell(1);
-
-        nameCell.innerHTML = name;
-        ageCell.innerHTML = age;
-
-        nameInput.value = "";
-        ageInput.value = "";
-      } else {
-        alert("Kérlek töltsd ki mindkét mezőt!");
-      }
-    }
-  </script>
-  <!-- Az előző HTML kódhoz hozzáadandó -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    </div>
+  </div>
+</div>
+<br>
 
 <script>
-  function saveAsPDF() {
-    window.jsPDF = window.jspdf.jsPDF;
-    const table = document.getElementById("dataTable");
-    const pdf = new jsPDF();
-
-    const header = ["Név", "Kor"];
-    const data = [];
-
-    for (let i = 1; i < table.rows.length; i++) {
-      const rowData = [];
-      for (let j = 0; j < table.rows[i].cells.length; j++) {
-        rowData.push(table.rows[i].cells[j].innerHTML);
-      }
-      data.push(rowData);
+var specialElementHandlers = {
+    // element with id of "bypass" - jQuery style selector
+    '.no-export': function (element, renderer) {
+        // true = "handled elsewhere, bypass text extraction"
+        return true;
     }
+};
 
-    pdf.autoTable({
-      head: [header],
-      body: data,
-    });
+function exportPDF(id) {
+    var doc = new jsPDF('p', 'pt', 'a4');
+    //A4 - 595x842 pts
+    //https://www.gnu.org/software/gv/manual/html_node/Paper-Keywords-and-paper-size-in-points.html
 
-    pdf.save("adatok.pdf");
-  }
+
+    //Html source 
+    var source = document.getElementById(id);
+console.log(source);
+    var margins = {
+        top: 10,
+        bottom: 10,
+        left: 10,
+        width: 595
+    };
+
+    doc.fromHTML(
+        source, // HTML string or DOM elem ref.
+        margins.left,
+        margins.top, {
+            'width': margins.width,
+            'elementHandlers': specialElementHandlers
+        },
+
+        function (dispose) {
+            // dispose: object with X, Y of the last line add to the PDF 
+            //          this allow the insertion of new lines after html
+            doc.save('Test.pdf');
+        }, margins);
+}
 </script>
-
-<!-- Az űrlaphoz hozzáadandó -->
-<button type="button" onclick="saveAsPDF()">Mentés PDF-ként</button>
-</body>
-</html>
