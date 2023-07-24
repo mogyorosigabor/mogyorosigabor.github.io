@@ -2,50 +2,6 @@
 <html>
 <head>
   <title>Táblázat létrehozása</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/3.10.0/pdf-lib.min.js"></script>
-  <script>
-  async function saveAsPDF() {
-    const table = document.getElementById("dataTable");
-
-    const pdfDoc = await PDFLib.PDFDocument.create();
-    const page = pdfDoc.addPage([400, 300]);
-
-    const { height } = page.getSize();
-
-    const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
-
-    const tableData = {
-      headers: ["Név", "Kor"],
-      rows: [],
-    };
-
-    for (let i = 1; i < table.rows.length; i++) {
-      const rowData = [];
-      for (let j = 0; j < table.rows[i].cells.length; j++) {
-        rowData.push(table.rows[i].cells[j].innerText);
-      }
-      tableData.rows.push(rowData);
-    }
-
-    const tableWidth = 400;
-    const tableHeight = height - 50;
-
-    const tableDraw = new PDFLib.Table(tableData.headers, tableData.rows);
-    tableDraw.x = 50;
-    tableDraw.y = height - 100;
-    tableDraw.width = tableWidth;
-    tableDraw.height = tableHeight;
-    tableDraw.draw(page);
-
-    const pdfBytes = await pdfDoc.save();
-
-    const pdfDataUri = URL.createObjectURL(new Blob([pdfBytes], { type: "application/pdf" }));
-    const downloadLink = document.createElement("a");
-    downloadLink.href = pdfDataUri;
-    downloadLink.download = "adatok.pdf";
-    downloadLink.click();
-  }
-</script>
 </head>
 <body>
   <form id="inputForm">
@@ -62,9 +18,6 @@
       <th>Kor</th>
     </tr>
   </table>
-  
-  <!-- Az űrlaphoz hozzáadandó -->
-<button type="button" onclick="saveAsPDF()">Mentés PDF-ként</button>
 
   <script>
     function addRow() {
@@ -90,5 +43,34 @@
     }
   </script>
   <!-- Az előző HTML kódhoz hozzáadandó -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+<script>
+  function saveAsPDF() {
+    const table = document.getElementById("dataTable");
+    const pdf = new jsPDF();
+
+    const header = ["Név", "Kor"];
+    const data = [];
+
+    for (let i = 1; i < table.rows.length; i++) {
+      const rowData = [];
+      for (let j = 0; j < table.rows[i].cells.length; j++) {
+        rowData.push(table.rows[i].cells[j].innerHTML);
+      }
+      data.push(rowData);
+    }
+
+    pdf.autoTable({
+      head: [header],
+      body: data,
+    });
+
+    pdf.save("adatok.pdf");
+  }
+</script>
+
+<!-- Az űrlaphoz hozzáadandó -->
+<button type="button" onclick="saveAsPDF()">Mentés PDF-ként</button>
 </body>
 </html>
