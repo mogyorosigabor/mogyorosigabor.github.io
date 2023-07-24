@@ -47,6 +47,7 @@
 
 <script>
   function saveAsPDF() {
+    window.jsPDF = window.jspdf.jsPDF;
     const table = document.getElementById("dataTable");
     const pdf = new jsPDF();
 
