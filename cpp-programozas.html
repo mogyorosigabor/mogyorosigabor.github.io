@@ -2224,7 +2224,7 @@ int main() {
     cout &lt;&lt; "Kérem adja meg a harmadik oldal hosszát: ";
     cin &gt;&gt; c;*/
 
-    cout &lt;&lt;&lt;&lt; "Kérem adja meg az a, b és c értékeket szóközökkel elválasztva: ";
+    cout &lt;&lt; "Kérem adja meg az a, b és c értékeket szóközökkel elválasztva: ";
     cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
 
     cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
@@ -2237,6 +2237,179 @@ int main() {
     } else {
         cout &lt;&lt; "A megadott oldalhosszakból nem lehet háromszöget szerkeszteni." &lt;&lt; endl;
     }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-6">7.6. feladat</h3>
+                Készítsen programot, amely függvény segítségével meghatározza három szám közül a
+                legkisebbet. Az adatokat a main kéri be, azokat paraméterként átadja a függvénynek. A
+                függvény meghatározza a legkisebb értéket, majd ezzel tér vissza. Az eredményt a main
+                írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+double findMin(double a, double b, double c) {
+    double min = a;
+
+    if (b &lt; min) {
+        min = b;
+    }
+
+    if (c &lt; min) {
+        min = c;
+    }
+
+    return min;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double a, b, c;
+    cout &lt;&lt; "Kérem adja meg a három számot szóközökkel elválasztva: ";
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    double min = findMin(a, b, c);
+    cout &lt;&lt; "A három szám közül a legkisebb: " &lt;&lt; min &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-7">7.7. feladat</h3>
+                Készítsen programot, amely függvény segítségével meghatározza a víz halmazállapotát
+                és kiírja azt („jég”, „víz”, „gőz”). A hőmérsékletet a main kéri be, azt paraméterként
+                átadja a függvénynek. A függvény meghatározza, majd kiírja a megfelelő szöveget.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+using namespace std;
+
+string determinePhase(double temperature) {
+    if (temperature &lt;= 0) {
+        return "jég";
+    } else if (temperature &gt; 0 && temperature &lt; 100) {
+        return "folyékony";
+    } else {
+        return "gőz";
+    }
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double temperature;
+
+    cout &lt;&lt; "Kérem adja meg a hőmérsékletet: ";
+    cin &gt;&gt; temperature;
+    string phase = determinePhase(temperature);
+    cout &lt;&lt; "A hőmérséklet alapján a víz halmazállapota: " &lt;&lt; phase &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-8">7.8. feladat</h3>
+                Készítsen programot, amely függvény segítségével meghatározza három szám átlagát.
+                Az adatokat a main kéri be, azokat paraméterként átadja a függvénynek. A függvény
+                meghatározza az átlagot, majd ezzel tér vissza. Az eredményt a main írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+double calculateAverage(double a, double b, double c) {
+    return (a + b + c) / 3.0;
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double num1, num2, num3;
+    cout &lt;&lt; "Kérem adja meg az első, második és harmadik számot: ";
+    cin &gt;&gt; num1 &gt;&gt; num2 &gt;&gt; num3;
+    double average = calculateAverage(num1, num2, num3);
+    cout &lt;&lt; "A három szám átlaga: " &lt;&lt; average &lt;&lt; endl;
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="fuggvenyek-9">7.9. feladat</h3>
+                Készítsen programot, amely függvény segítségével lerendezi egy tömb elemeit. A tömb
+                értékeit a main kéri be, majd a rendezett tömböt kiírja. A függvényben mutatókat
+                használjon!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+void sort(int *array, int size) {
+    int i, j, temp;
+    for (i = 0; i &lt; size - 1; i++) {
+        for (j = i + 1; j &lt; size; j++) {
+            if (*(array + i) &gt; *(array + j)) {
+                temp = *(array + i);
+                *(array + i) = *(array + j);
+                *(array + j) = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    int array[100], size, i;
+
+    cout &lt;&lt; "Add meg a tömb elemeinek számát: ";
+    cin &gt;&gt; size;
+
+    for (i = 0; i &lt; size; i++) {
+        cout &lt;&lt; "Add meg az " &lt;&lt; i &lt;&lt; ". elemet: ";
+        cin &gt;&gt; *(array + i);
+    }
+
+    sort(array, size);
+
+    cout &lt;&lt; "A rendezett tömb: ";
+    for (i = 0; i &lt; size; i++) {
+        cout &lt;&lt; *(array + i) &lt;&lt; " ";
+    }
+
+    cout &lt;&lt; endl;
 
     system("pause");
     return 0;
@@ -2608,6 +2781,423 @@ int main() {
     if (!talalt) {
         cout &lt;&lt; "Nem található név a(z) " &lt;&lt; bekertTelefon &lt;&lt; " telefonszámmal." &lt;&lt; endl;
     }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS mt-5">
+                <h2 id="objektum" class="fw-bold">9. Objektum</h2>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-1">9.1. feladat</h3>
+                Készítsen objektum orientált programot, amely egy 10 elemű tömböt billentyűzetről
+                feltölt, majd kiírja a tartalmát. A tömb az osztály tagváltozója, a beolvasás és kiírás metódusok legyenek!
+                Hozzon létre a fenti osztályból egy leszármazott osztályt, amelyben a kiírást úgy módisítja, hogy az indexeket is megjeleníti.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+using namespace std;
+
+class Array {
+protected:
+    int elements[10];
+
+public:
+    void fillArray() {
+        std::cout &lt;&lt; "Kérem adja meg a tömb elemeit:" &lt;&lt; std::endl;
+        for (int i = 0; i &lt; 10; i++) {
+            std::cin &gt;&gt; elements[i];
+        }
+    }
+
+    void printArray() const {
+        std::cout &lt;&lt; "A tömb elemei:" &lt;&lt; std::endl;
+        for (int i = 0; i &lt; 10; i++) {
+            std::cout &lt;&lt; elements[i] &lt;&lt; " ";
+        }
+        std::cout &lt;&lt; std::endl;
+    }
+
+    const int* getElements() const {
+        return elements;
+    }
+};
+
+class DerivedArray : public Array {
+public:
+    DerivedArray(const Array& baseArray) {
+        const int* baseElements = baseArray.getElements();
+        for (int i = 0; i &lt; 10; i++) {
+            elements[i] = baseElements[i];
+        }
+    }
+
+    void printArray() const {
+        std::cout &lt;&lt; "A tömb elemei:" &lt;&lt; std::endl;
+        for (int i = 0; i &lt; 10; i++) {
+            std::cout &lt;&lt; i &lt;&lt; ": " &lt;&lt; elements[i] &lt;&lt; " ";
+        }
+        std::cout &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    Array arr;
+    arr.fillArray();
+    arr.printArray();
+
+    DerivedArray derivedArr(arr);
+    derivedArr.printArray();
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-2">9.2. feladat</h3>
+                Készítsen objektum orientált programot, amely egy karakterláncot (sztringet) beolvas
+                a billentyűzetről, majd visszaírja a képernyőre. Hozzon létre a fenti osztályból egy leszármazott osztályt,
+                amelyben megszámolja és kiírja a sztringben lévő kisbetűk számát.
+                A tömb az osztály tagváltozója, a beolvasás és a kiírás metódusok legyenek!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cctype>
+#include &lt;windows.h>
+
+class StringProcessor {
+protected:
+    std::string str;
+
+public:
+    void readString() {
+        std::cout &lt;&lt; "Kérem adjon meg egy szöveget: ";
+        std::getline(std::cin, str);
+    }
+
+    void writeString() const {
+        std::cout &lt;&lt; "Beolvasott szöveg: " &lt;&lt; str &lt;&lt; std::endl;
+    }
+};
+
+class CharCounter : public StringProcessor {
+public:
+    int countLowerCase() const {
+        int count = 0;
+        for (char c : str) {
+            if (std::islower(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    void writeLowerCaseCount() const {
+        std::cout &lt;&lt; "Kisbetűk száma: " &lt;&lt; countLowerCase() &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    CharCounter charCounter;
+    charCounter.readString();
+    charCounter.writeString();
+    charCounter.writeLowerCaseCount();
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-3">9.3. feladat</h3>
+                Készítsen objektum orientált programot, amelyben egy karakterláncot konstruktor segítségével adunk meg.
+                A karakterláncot destruktor írja ki a képernyőre.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;cstring>
+#include &lt;windows.h>
+
+class StringPrinter {
+private:
+    std::string str;
+
+public:
+    StringPrinter(const std::string &inputStr) : str(inputStr) {}
+
+    ~StringPrinter() {
+        std::cout &lt;&lt; "Karakterlánc tartalma: " &lt;&lt; str &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    std::string inputStr;
+    std::cout &lt;&lt; "Kérem adjon meg egy karakterláncot: ";
+    std::getline(std::cin, inputStr);
+
+    {
+        StringPrinter strPrinter(inputStr);
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-4">9.4. feladat</h3>
+                Készítsen objektum orientált programot, amely egy karakterláncot (sztringet) beolvas
+                a billentyűzetről, majd visszaírja a képernyőre. Hozzon létre a fenti osztályból egy leszármazott osztályt,
+                amelyben megszámolja és kiírja a sztringben lévő számkarakterek
+                számát. A tömb az osztály tagváltozója, a beolvasás és a kiírás metódusok legyenek!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;string>
+#include &lt;cctype>
+#include &lt;windows.h>
+
+class StringPrinter {
+protected:
+    std::string str;
+
+public:
+    StringPrinter(const std::string& inputStr) : str(inputStr) {}
+
+    void printString() const {
+        std::cout &lt;&lt; "Karakterlánc tartalma: " &lt;&lt; str &lt;&lt; std::endl;
+    }
+};
+
+class StringAnalyzer : public StringPrinter {
+public:
+    StringAnalyzer(const std::string& inputStr) : StringPrinter(inputStr) {}
+
+    void analyzeString() const {
+        int digitCount = 0;
+        for (char c : str) {
+            if (std::isdigit(c)) {
+                digitCount++;
+            }
+        }
+        std::cout &lt;&lt; "A sztringben található számkarakterek száma: " &lt;&lt; digitCount &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    std::string inputStr;
+    std::cout &lt;&lt; "Kérem adjon meg egy karakterláncot: ";
+    std::getline(std::cin, inputStr);
+
+    StringAnalyzer strAnalyzer(inputStr);
+    strAnalyzer.printString();
+    strAnalyzer.analyzeString();
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-5">9.5. feladat</h3>
+                Készítsen objektum orientált programot, amely egy téglatest adatait (három oldalának
+                hosszát) billentyűzetről bekéri, majd kiszámítja és kiírja a felszínének értéket. Hozzon
+                létre a fenti osztályból egy leszármazott osztályt, amely a térfogatot is kiírja. A téglatest
+                paraméterei az osztály tagváltozója, a beolvasás és kiírás metódusok legyenek!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+class Cuboid {
+protected:
+    double length;
+    double width;
+    double height;
+
+public:
+    Cuboid(double l, double w, double h) : length(l), width(w), height(h) {}
+
+    double calculateSurfaceArea() const {
+        return 2 * (length * width + length * height + width * height);
+    }
+
+    void printSurfaceArea() const {
+        std::cout &lt;&lt; "A téglatest felszíne: " &lt;&lt; calculateSurfaceArea() &lt;&lt; " m2" &lt;&lt; std::endl;
+    }
+};
+
+class CuboidWithVolume : public Cuboid {
+public:
+    CuboidWithVolume(double l, double w, double h) : Cuboid(l, w, h) {}
+
+    double calculateVolume() const {
+        return length * width * height;
+    }
+
+    void printVolume() const {
+        std::cout &lt;&lt; "A téglatest térfogata: " &lt;&lt; calculateVolume() &lt;&lt; " m3" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double length, width, height;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest hosszát: ";
+    std::cin &gt;&gt; length;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest szélességét: ";
+    std::cin &gt;&gt; width;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest magasságát: ";
+    std::cin &gt;&gt; height;
+
+    CuboidWithVolume cuboid(length, width, height);
+    cuboid.printSurfaceArea();
+    cuboid.printVolume();
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-6">9.6. feladat</h3>
+                Készítsen objektum orientált programot, amelyben egy téglatest adatait (három oldalának hosszát) konstruktor segítségével,
+                a példányosításkor adjuk meg. Egy metódussal kiszámítja a téglatest felszínét és térfogatát, majd az eredményt destruktor írja ki.
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+class Cuboid {
+private:
+    double length;
+    double width;
+    double height;
+
+public:
+    Cuboid(double l, double w, double h) : length(l), width(w), height(h) {}
+
+    ~Cuboid() {
+        double surfaceArea = calculateSurfaceArea();
+        double volume = calculateVolume();
+        std::cout &lt;&lt; "Téglatest felszíne: " &lt;&lt; surfaceArea &lt;&lt; " m2" &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Téglatest térfogata: " &lt;&lt; volume &lt;&lt; " m3" &lt;&lt; std::endl;
+    }
+
+    double calculateSurfaceArea() const {
+        return 2 * (length * width + length * height + width * height);
+    }
+
+    double calculateVolume() const {
+        return length * width * height;
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double length, width, height;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest hosszát: ";
+    std::cin &gt;&gt; length;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest szélességét: ";
+    std::cin &gt;&gt; width;
+
+    std::cout &lt;&lt; "Kérem adja meg a téglatest magasságát: ";
+    std::cin &gt;&gt; height;
+
+    {
+        Cuboid cuboid(length, width, height);
+    }
+
+    system("pause");
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </section>
+            <section class="forJS">
+                <h3 class="text-secondary fw-bold" id="objektum-7">9.7. feladat</h3>
+                Készítsen objektum orientált programot, amely bekéri egy háromszög oldalainak hoszszát, majd kiértékeli,
+                hogy az adatokból szerkeszthető-e háromszög (bármely két oldal összege nagyobb a harmadiknál).
+                Az oldalak hossza az osztály attribútuma, az értékét konstruktorral adja meg, a beolvasás és kiírás metódusok legyenek!
+                <div class="language-cpp small my-4">
+                    <pre class="rounded-2">
+                        <code>
+#include &lt;iostream>
+#include &lt;windows.h>
+
+class Triangle {
+private:
+    double sideA, sideB, sideC;
+
+public:
+    Triangle(double a, double b, double c) : sideA(a), sideB(b), sideC(c) {}
+
+    bool isTriangle() const {
+        return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
+    }
+
+    void printResult() const {
+        if (isTriangle()) {
+            std::cout &lt;&lt; "A megadott adatokból szerkeszthető háromszög." &lt;&lt; std::endl;
+        } else {
+            std::cout &lt;&lt; "A megadott adatokból nem lehet háromszöget szerkeszteni." &lt;&lt; std::endl;
+        }
+    }
+};
+
+int main() {
+    SetConsoleOutputCP(65001);
+
+    double sideA, sideB, sideC;
+
+    std::cout &lt;&lt; "Kérem adja meg a háromszög első oldalának hosszát: ";
+    std::cin &gt;&gt; sideA;
+
+    std::cout &lt;&lt; "Kérem adja meg a háromszög második oldalának hosszát: ";
+    std::cin &gt;&gt; sideB;
+
+    std::cout &lt;&lt; "Kérem adja meg a háromszög harmadik oldalának hosszát: ";
+    std::cin &gt;&gt; sideC;
+
+    Triangle triangle(sideA, sideB, sideC);
+    triangle.printResult();
 
     system("pause");
     return 0;
