@@ -371,18 +371,18 @@ int main() {
   SetConsoleOutputCP(65001);
 
   char c; // karaktert tároló változó
-  cout &lt;&lt; "Karaktereket be SPACE-ig:" &lt;&lt; endl; // kiírjuk az utasítást
-  do {
-    cin.get(c); // beolvassuk a karaktert
-    if (!isspace((int)c)) {
-      cout &lt;&lt; c &lt;&lt; " " &lt;&lt; (int)c &lt;&lt; endl; // kiírjuk a karaktert és az ASCII kódját
-    }
-  } while (!isspace((int)c)); // ismételjük, amíg nem SPACE-t kapunk
+  cout &lt;&lt; "Adja meg a karaktereket SPACE-ig: " &lt;&lt; endl; // kiírjuk az utasítást
 
-  // WHILE ciklussal
-  /*while (cin.get(c) && !isspace((int)c)) {
-    cout &lt;&lt; (int)c &lt;&lt; endl;
+  // Egyik megoldás
+  /*while ((c = cin.get()) != ' ') {
+    cout &lt;&lt; c &lt;&lt; " (ASCII kód: " &lt;&lt; (int)c &lt;&lt; ")" &lt;&lt; endl;
   }*/
+
+  // Másik megoldás
+  while (cin.get(c) && !isspace(static_cast&lt;int>(c))) {
+    //cout &lt;&lt; c &lt;&lt; " (ASCII kód: " &lt;&lt; (int)c &lt;&lt; ")" &lt;&lt; endl;
+    cout &lt;&lt; c &lt;&lt; " (ASCII kód: " &lt;&lt; static_cast&lt;int>(c) &lt;&lt; ")" &lt;&lt; endl;
+  }
 
   system("pause");
   return 0;
