@@ -42,3 +42,5 @@ function removeLocationHash() {
 }
 
 ['popstate', 'hashchange', 'load'].forEach((e) => window.addEventListener(e, removeLocationHash, false));
+
+Fancybox.bind("[data-fancybox]");
