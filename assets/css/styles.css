@@ -32,6 +32,10 @@ img {
     text-shadow: 1px 1px 0 #000
 }
 
+.h-0 {
+    height: 0 !important;
+}
+
 .scroll-indicator {
     position: fixed;
     bottom: 0;
