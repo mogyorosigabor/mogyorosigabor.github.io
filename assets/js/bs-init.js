@@ -8,7 +8,7 @@ if (window.innerWidth < 768) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', _ => {
     // AOS initialization
     ('AOS' in window) && AOS.init();
 
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Chart.js initialization
-    var charts = document.querySelectorAll('[data-bss-chart]');
+    let charts = document.querySelectorAll('[data-bss-chart]');
 
-    for (var chart of charts) {
+    for (const chart of charts) {
         chart.chart = new Chart(chart, JSON.parse(chart.dataset.bssChart));
     }
 }, false);
