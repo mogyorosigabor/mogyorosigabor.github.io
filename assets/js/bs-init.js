@@ -1,5 +1,5 @@
 if (window.innerWidth < 768) {
-    [].slice.call(document.querySelectorAll('[data-bss-disabled-mobile]')).forEach(function (elem) {
+    [].slice.call(document.querySelectorAll('[data-bss-disabled-mobile]')).forEach(elem => {
         elem.classList.remove('animated');
         elem.removeAttribute('data-bss-hover-animate');
         elem.removeAttribute('data-aos');
@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', _ => {
     let charts = document.querySelectorAll('[data-bss-chart]');
 
     for (const chart of charts) {
-        chart.chart = new Chart(chart, JSON.parse(chart.dataset.bssChart));
+        let chartConfig = JSON.parse(chart.dataset.bssChart);
+        chartConfig.options.scales = {
+            x: {
+                ticks: {
+                    fontStyle: 'normal',
+                    beginAtZero: true
+                }
+            },
+            y: {
+                ticks: {
+                    fontStyle: 'normal',
+                    beginAtZero: true
+                }
+            }
+        };
+        chart.chart = new Chart(chart, chartConfig);
     }
 }, false);
