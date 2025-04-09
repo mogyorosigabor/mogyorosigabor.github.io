@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', _ => {
     // AOS initialization
     ('AOS' in window) && AOS.init();
 
-    // Bootstrap tooltop initialization
+    // Bootstrap tooltip initialization
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl, {
             trigger: "hover",
             customClass: "custom-tooltip"
