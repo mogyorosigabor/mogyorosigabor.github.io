@@ -27,16 +27,6 @@ document.addEventListener('DOMContentLoaded', _ => {
     for (const chart of charts) {
         let chartConfig = JSON.parse(chart.dataset.bssChart);
 
-        chartConfig.options.plugins = {
-            title: {
-                display: true,
-                font: {
-                    style: 'bold',
-                    size: 18
-                }
-            }
-        };
-
         chartConfig.options.scales = {
             x: {
                 ticks: {
