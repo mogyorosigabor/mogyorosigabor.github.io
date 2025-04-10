@@ -22,30 +22,9 @@ document.addEventListener('DOMContentLoaded', _ => {
     });
 
     // Chart.js initialization
-    /*let charts = document.querySelectorAll('[data-bss-chart]');
+    const charts = document.querySelectorAll('[data-bss-chart]');
 
-    for (const chart of charts) {
-        let chartConfig = JSON.parse(chart.dataset.bssChart);
-
-        chartConfig.options.scales = {
-            x: {
-                ticks: {
-                    fontStyle: 'normal',
-                    beginAtZero: true
-                }
-            },
-            y: {
-                ticks: {
-                    fontStyle: 'normal',
-                    beginAtZero: true
-                }
-            }
-        };
-        chart.chart = new Chart(chart, chartConfig);
-    }*/
-    var charts = document.querySelectorAll('[data-bss-chart]');
-
-    for (var chart of charts) {
+    for (let chart of charts) {
         chart.chart = new Chart(chart, JSON.parse(chart.dataset.bssChart));
     }
 }, false);
