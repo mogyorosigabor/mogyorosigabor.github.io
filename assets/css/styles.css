@@ -207,15 +207,15 @@ img {
     }
 }
 
-main section#bemutatkozas .section-heading {
+main #bemutatkozas .section-heading {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/introduction.jpg') fixed
 }
 
-main section#referenciak .section-heading {
+main #referenciak .section-heading {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/references.jpg') fixed
 }
 
-main section#publikaciok .section-heading {
+main #publikaciok .section-heading {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/publications.jpg') fixed
 }
 
