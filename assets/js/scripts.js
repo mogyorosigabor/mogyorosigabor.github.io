@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
         /* scroll top button hide/show */
         document.getElementsByClassName('scroll-top')[0].style.right = this.scrollY > 0 ? '20px' : '-70px';
         /* scroll indicator */
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+        /*let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
             height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
             scrolled = (winScroll / height) * 100;
-        document.getElementById('scrollIndicatorBar').style.width = scrolled + '%';
+        document.getElementById('scrollIndicatorBar').style.width = scrolled + '%';*/
     }, false));
     /* scroll to top */
     document.querySelector('.scroll-top').addEventListener('click', () => {

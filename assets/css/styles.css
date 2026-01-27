@@ -1,6 +1,5 @@
 html {
     scrollbar-color: #781903 var(--bs-gray-100);
-    scrollbar-width: thin
 }
 
 body {
@@ -9,16 +8,16 @@ body {
 }
 
 img {
-    height: auto
+    height: auto;
 }
 
 ::-webkit-scrollbar {
     width: 8px;
-    height: 8px
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -29,20 +28,30 @@ img {
 ::selection {
     background: #0f3f6f;
     color: #fff;
-    text-shadow: 1px 1px 0 #000
+    text-shadow: 1px 1px 0 #000;
 }
 
 .scroll-indicator {
     position: fixed;
+    left: 0;
     bottom: 0;
     z-index: 999;
-    width: 100%
-}
-
-.progress-bar {
+    width: 100%;
     height: 7px;
     background: linear-gradient(to right, red, #ff0);
-    width: 0%
+    /* Scroll indicator animáció (JavaScript helyett) */
+    animation-name: scroll-indicator;
+    animation-timeline: scroll();
+}
+
+/* Scroll indicator animáció (JavaScript helyett) */
+@keyframes scroll-indicator {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 .card {
@@ -52,27 +61,27 @@ img {
 
 .card .card-header h4 {
     margin-bottom: 0;
-    padding: 10px 0
+    padding: 10px 0;
 }
 
 .card .card-header img {
     height: 60px;
-    width: auto
+    width: auto;
 }
 
 .supsub {
-    display: inline-block
+    display: inline-block;
 }
 
 .supsub sub, .supsub sup {
     position: relative;
     display: block;
     font-size: .7em;
-    line-height: .5
+    line-height: .5;
 }
 
 .custom-tooltip {
-    --bs-tooltip-bg: var(--bs-primary)
+    --bs-tooltip-bg: var(--bs-primary);
 }
 
 .scroll-top {
@@ -87,11 +96,11 @@ img {
     height: 60px;
     border-radius: var(--bs-border-radius-lg) !important;
     opacity: .8;
-    transition: .5s
+    transition: .5s;
 }
 
 .scroll-top:hover {
-    opacity: 1
+    opacity: 1;
 }
 
 .pin {
@@ -102,7 +111,7 @@ img {
     position: absolute;
     right: 75px;
     top: -3px;
-    transform: rotate(-30deg)
+    transform: rotate(-30deg);
 }
 
 .pin::after {
@@ -114,7 +123,7 @@ img {
     left: -5px;
     position: absolute;
     top: -10px;
-    width: 12px
+    width: 12px;
 }
 
 .pin::before {
@@ -133,7 +142,7 @@ img {
     transform-origin: 50% 100%;
     -moz-transform-origin: 50% 100%;
     -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%
+    -ms-transform-origin: 50% 100%;
 }
 
 .main-header {
@@ -146,32 +155,32 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 100vh
+    height: 100vh;
 }
 
 @media (min-width: 1152px) {
     .main-header {
-        animation: 30s linear infinite breath
+        animation: 30s linear infinite breath;
     }
 }
 
 @keyframes breath {
     0%, 100% {
-        background-size: 150% auto
+        background-size: 150% auto;
     }
     50% {
-        background-size: 180% auto
+        background-size: 180% auto;
     }
 }
 
 .main-header img {
-    width: 360px
+    width: 360px;
 }
 
 .main-header h1 {
     color: #ffe732;
     font-weight: 700;
-    text-shadow: 3px 3px 10px #000
+    text-shadow: 3px 3px 10px #000;
 }
 
 .navbar {
@@ -179,11 +188,11 @@ img {
 }
 
 .navbar .navbar-brand img {
-    width: 90px
+    width: 90px;
 }
 
 .navbar .nav-link {
-    position: relative
+    position: relative;
 }
 
 @media (min-width: 768px) {
@@ -195,33 +204,33 @@ img {
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        transition: width .4s
+        transition: width .4s;
     }
 
     .navbar .nav-link::after {
-        width: 0
+        width: 0;
     }
 
     .navbar .nav-link.active::after, .navbar .nav-link:hover::after {
-        width: 90%
+        width: 90%;
     }
 }
 
 main #bemutatkozas .section-heading {
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/introduction.jpg') fixed
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/introduction.jpg') fixed;
 }
 
 main #referenciak .section-heading {
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/references.jpg') fixed
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/references.jpg') fixed;
 }
 
 main #publikaciok .section-heading {
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/publications.jpg') fixed
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) fixed, url('/assets/img/publications.jpg') fixed;
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
     .section-heading {
-        padding: 50px 20px !important
+        padding: 50px 20px !important;
     }
 }
 
@@ -231,12 +240,12 @@ main #publikaciok .section-heading {
     border-top: 10px solid #0f3f6f;
     text-transform: uppercase;
     background-position: center !important;
-    background-size: cover !important
+    background-size: cover !important;
 }
 
 .section-heading p {
     font-weight: 700;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .accordion .accordion-body ol.cikkek {
@@ -244,7 +253,7 @@ main #publikaciok .section-heading {
     list-style-type: none !important;
     padding-left: 35px;
     position: relative;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .accordion .accordion-body ol.cikkek li::before {
@@ -252,16 +261,16 @@ main #publikaciok .section-heading {
     counter-increment: item;
     position: absolute;
     left: 0;
-    font-weight: 700
+    font-weight: 700;
 }
 
 footer {
     position: relative;
-    margin-top: 90px
+    margin-top: 90px;
 }
 
 footer img.logo {
-    width: 245px
+    width: 245px;
 }
 
 footer .w3c_validated {
@@ -269,11 +278,11 @@ footer .w3c_validated {
     top: -15px;
     right: 30px;
     transform: rotate(20deg);
-    width: 120px
+    width: 120px;
 }
 
 footer ul li.list-inline-item {
-    margin: 0 15px
+    margin: 0 15px;
 }
 
 [data-toc="tartalomjegyzek"] ul li > ul {
