@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     ['load', 'scroll'].forEach(e => window.addEventListener(e, function () {
         /* scroll top button hide/show */
-        document.getElementsByClassName('scroll-top')[0].style.right = this.scrollY > 0 ? '20px' : '-70px';
+        //document.getElementsByClassName('scroll-top')[0].style.right = this.scrollY > 0 ? '20px' : '-70px';
         /* scroll indicator */
         /*let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
             height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
